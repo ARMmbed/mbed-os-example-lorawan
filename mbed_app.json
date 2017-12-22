@@ -1,0 +1,21 @@
+{
+	"config": {
+        "tx-timer": {
+        	"help": "Sets up an application dependent transmission timer in ms. Used only when Duty Cycling is off for testing",
+        	"value": 10000
+        }
+	},
+    "target_overrides": {
+        "*": {
+            "platform.stdio-convert-newlines": true,
+            "platform.stdio-baud-rate": 115200,
+            "platform.default-serial-baud-rate": 115200,
+            "lora.over-the-air-activation": true,
+            "lora.duty-cycle-on": true,
+            "lora.device-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
+            "lora.application-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00  }",
+            "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 , 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
+        }
+    },
+    "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
+}
