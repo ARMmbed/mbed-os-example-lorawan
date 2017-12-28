@@ -110,8 +110,8 @@ int main (void)
     lorawan.add_app_callbacks(&callbacks);
 
     // Set number of retries in case of CONFIRMED messages
-    if (lorawan.set_confirmed_msg_retries(CONFIRMED_MSG_RETRY_COUNTER
-                                          != LORA_MAC_STATUS_OK)) {
+    if (lorawan.set_confirmed_msg_retries(CONFIRMED_MSG_RETRY_COUNTER)
+                                          != LORA_MAC_STATUS_OK) {
         printf("\r\n set_confirmed_msg_retries failed! \r\n\r\n");
         return -1;
     }
