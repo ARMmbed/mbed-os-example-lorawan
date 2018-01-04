@@ -30,6 +30,12 @@
 
 #endif //TARGET_MTS_MDOT_F411RE
 
+#if TARGET_XDOT_L151CC
+static SX1272_LoRaRadio radio(LORA_MOSI, LORA_MISO, LORA_SCK, LORA_NSS, LORA_RESET,
+                        LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4,
+                        NC, NC, NC, NC, NC, NC, NC);
+#endif
+
 /**
  * Constructing a LoRaRadio object for Semtech 1276 radio available on
  * Mbed LoRa radio shield which can be mounted on any board supporting
