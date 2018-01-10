@@ -20,9 +20,9 @@
 #include "events/EventQueue.h"
 
 // Application helpers
-#include "DummySensor.h"
-#include "trace_helper.h"
-#include "lora_radio_helper.h"
+#include "includes/DummySensor.h"
+#include "includes/trace_helper.h"
+#include "includes/lora_radio_helper.h"
 
 using namespace events;
 
