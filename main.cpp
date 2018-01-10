@@ -232,7 +232,7 @@ static void lora_event_handler(lora_events_t event)
         case TX_ERROR:
         case TX_CRYPTO_ERROR:
         case TX_SCHEDULING_ERROR:
-            printf("\r\n Transmission Error - Code = %d \r\n", event);
+            printf("\r\n Transmission Error - EventCode = %d \r\n", event);
             // try again
             if (duty_cycle_on) {
                 send_message();
