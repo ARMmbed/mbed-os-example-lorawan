@@ -29,31 +29,27 @@ using namespace events;
 uint8_t tx_buffer[LORAMAC_PHY_MAXPAYLOAD];
 uint8_t rx_buffer[LORAMAC_PHY_MAXPAYLOAD];
 
-/**
- * Check if duty cycling is on or not
+/*
+ * Sets up an application dependent transmission timer in ms. Used only when Duty Cycling is off for testing
  */
-#if LORAWAN_DUTYCYCLE_ON
-static bool duty_cycle_on = true;
-#else
-static bool duty_cycle_on = false;
-#endif
+#define TX_TIMER                        10000
 
 /**
  * Maximum number of events for the event queue.
  * 16 is the safe number for the stack events, however, if application
  * also uses the queue for whatever purposes, this number should be increased.
  */
-#define MAX_NUMBER_OF_EVENTS    16
+#define MAX_NUMBER_OF_EVENTS            16
 
 /**
  * Maximum number of retries for CONFIRMED messages before giving up
  */
-#define CONFIRMED_MSG_RETRY_COUNTER    3
+#define CONFIRMED_MSG_RETRY_COUNTER     3
 
 /**
  * Dummy pin for dummy sensor
  */
-#define PC_9 0
+#define PC_9                            0
 
 /**
  * Dummy sensor class object
@@ -165,7 +161,7 @@ static void send_message()
     packet_len = sprintf((char*) tx_buffer, "Dummy Sensor Value is %3.1f",
                     sensor_value);
 
-    retcode = lorawan.send(LORAWAN_APP_PORT, tx_buffer, packet_len,
+    retcode = lorawan.send(MBED_CONF_LORA_APP_PORT, tx_buffer, packet_len,
                            MSG_CONFIRMED_FLAG);
 
     if (retcode < 0) {
@@ -184,7 +180,7 @@ static void send_message()
 static void receive_message()
 {
     int16_t retcode;
-    retcode = lorawan.receive(LORAWAN_APP_PORT, rx_buffer,
+    retcode = lorawan.receive(MBED_CONF_LORA_APP_PORT, rx_buffer,
                               LORAMAC_PHY_MAXPAYLOAD,
                               MSG_CONFIRMED_FLAG|MSG_UNCONFIRMED_FLAG);
 
@@ -212,7 +208,7 @@ static void lora_event_handler(lora_events_t event)
     switch (event) {
         case CONNECTED:
             printf("\r\n Connection - Successful \r\n");
-            if (duty_cycle_on) {
+            if (MBED_CONF_LORA_DUTY_CYCLE_ON) {
                 send_message();
             } else {
                 ev_queue.call_every(TX_TIMER, send_message);
@@ -225,7 +221,7 @@ static void lora_event_handler(lora_events_t event)
             break;
         case TX_DONE:
             printf("\r\n Message Sent to Network Server \r\n");
-            if (duty_cycle_on) {
+            if (MBED_CONF_LORA_DUTY_CYCLE_ON) {
                 send_message();
             }
             break;
@@ -235,7 +231,7 @@ static void lora_event_handler(lora_events_t event)
         case TX_SCHEDULING_ERROR:
             printf("\r\n Transmission Error - EventCode = %d \r\n", event);
             // try again
-            if (duty_cycle_on) {
+            if (MBED_CONF_LORA_DUTY_CYCLE_ON) {
                 send_message();
             }
             break;
