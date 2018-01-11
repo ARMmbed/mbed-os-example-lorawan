@@ -1,10 +1,4 @@
 {
-	"config": {
-        "tx-timer": {
-        	"help": "Sets up an application dependent transmission timer in ms. Used only when Duty Cycling is off for testing",
-        	"value": 10000
-        }
-	},
     "target_overrides": {
         "*": {
             "platform.stdio-convert-newlines": true,
