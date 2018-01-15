@@ -71,7 +71,7 @@ static EventQueue ev_queue(MAX_NUMBER_OF_EVENTS * EVENTS_EVENT_SIZE);
  * This will be passed to the LoRaWAN stack to queue events for the
  * application which in turn drive the application.
  */
-static void lora_event_handler(lora_events_t event);
+static void lora_event_handler(lorawan_events_t event);
 
 /**
  * Constructing Mbed LoRaWANInterface and passing it down the radio object.
@@ -92,10 +92,10 @@ int main (void)
     setup_trace();
 
     // stores the status of a call to LoRaWAN protocol
-    lora_mac_status_t retcode;
+    lorawan_status_t retcode;
 
     // Initialize LoRaWAN stack
-    if (lorawan.initialize(&ev_queue) != LORA_MAC_STATUS_OK) {
+    if (lorawan.initialize(&ev_queue) != LORAWAN_STATUS_OK) {
         printf("\r\n LoRa initialization failed! \r\n");
         return -1;
     }
@@ -108,7 +108,7 @@ int main (void)
 
     // Set number of retries in case of CONFIRMED messages
     if (lorawan.set_confirmed_msg_retries(CONFIRMED_MSG_RETRY_COUNTER)
-                                          != LORA_MAC_STATUS_OK) {
+                                          != LORAWAN_STATUS_OK) {
         printf("\r\n set_confirmed_msg_retries failed! \r\n\r\n");
         return -1;
     }
@@ -117,7 +117,7 @@ int main (void)
            CONFIRMED_MSG_RETRY_COUNTER);
 
     // Enable adaptive data rate
-    if (lorawan.enable_adaptive_datarate() != LORA_MAC_STATUS_OK) {
+    if (lorawan.enable_adaptive_datarate() != LORAWAN_STATUS_OK) {
         printf("\r\n enable_adaptive_datarate failed! \r\n");
         return -1;
     }
@@ -126,8 +126,8 @@ int main (void)
 
     retcode = lorawan.connect();
 
-    if (retcode == LORA_MAC_STATUS_OK ||
-        retcode == LORA_MAC_STATUS_CONNECT_IN_PROGRESS) {
+    if (retcode == LORAWAN_STATUS_OK ||
+        retcode == LORAWAN_STATUS_CONNECT_IN_PROGRESS) {
     } else {
         printf("\r\n Connection error, code = %d \r\n", retcode);
         return -1;
@@ -165,7 +165,7 @@ static void send_message()
                            MSG_CONFIRMED_FLAG);
 
     if (retcode < 0) {
-        retcode == LORA_MAC_STATUS_WOULD_BLOCK ? printf("send - WOULD BLOCK\r\n")
+        retcode == LORAWAN_STATUS_WOULD_BLOCK ? printf("send - WOULD BLOCK\r\n")
                 : printf("\r\n send() - Error code %d \r\n", retcode);
         return;
     }
@@ -203,7 +203,7 @@ static void receive_message()
 /**
  * Event handler
  */
-static void lora_event_handler(lora_events_t event)
+static void lora_event_handler(lorawan_events_t event)
 {
     switch (event) {
         case CONNECTED:
