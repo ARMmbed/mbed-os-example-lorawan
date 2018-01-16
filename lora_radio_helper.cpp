@@ -21,19 +21,23 @@
 /**
  * Constructing a LoRaRadio object for Semtech SX1272 radio
  * available on MultiTech mDot platform
+ * https://os.mbed.com/platforms/MTS-mDot-F411/
  */
 #if TARGET_MTS_MDOT_F411RE
-
- static SX1272_LoRaRadio radio(LORA_MOSI, LORA_MISO, LORA_SCK, LORA_NSS, LORA_RESET,
-                        LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4,
-                        LORA_DIO5, NC, NC, LORA_TXCTL, LORA_RXCTL, NC, NC);
-
+static SX1272_LoRaRadio radio(LORA_MOSI, LORA_MISO, LORA_SCK, LORA_NSS, LORA_RESET,
+                              LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4, LORA_DIO5,
+                              NC, NC, LORA_TXCTL, LORA_RXCTL, NC, NC);
 #endif //TARGET_MTS_MDOT_F411RE
 
+/**
+ * Constructing a LoRaRadio object for Semtech SX1272 radio
+ * available on MultiTech xDot platform
+ * https://os.mbed.com/platforms/MTS-xDot-L151CC/
+ */
 #if TARGET_XDOT_L151CC
 static SX1272_LoRaRadio radio(LORA_MOSI, LORA_MISO, LORA_SCK, LORA_NSS, LORA_RESET,
-                        LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4,
-                        NC, NC, NC, NC, NC, NC, NC);
+                              LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4, NC,
+                              NC, NC, NC, NC, NC, NC);
 #endif
 
 /**
@@ -43,62 +47,79 @@ static SX1272_LoRaRadio radio(LORA_MOSI, LORA_MISO, LORA_SCK, LORA_NSS, LORA_RES
  * https://os.mbed.com/components/SX1276MB1xAS/
  */
 #if TARGET_K64F
+#define LORA_SPI_MOSI     D11
+#define LORA_SPI_MISO     D12
+#define LORA_SPI_SCLK     D13
+#define LORA_CS           D10
+#define LORA_RESET        A0
+#define LORA_DIO0         D2
+#define LORA_DIO1         D3
+#define LORA_DIO2         D4
+#define LORA_DIO3         D5
+#define LORA_DIO4         D8
+#define LORA_DIO5         D9
+#define LORA_ANT_SWITCH   A4
 
- #define LORA_SPI_MOSI     D11
- #define LORA_SPI_MISO     D12
- #define LORA_SPI_SCLK     D13
- #define LORA_CS           D10
- #define LORA_RESET        A0
- #define LORA_DIO0         D2
- #define LORA_DIO1         D3
- #define LORA_DIO2         D4
- #define LORA_DIO3         D5
- #define LORA_DIO4         D8
- #define LORA_DIO5         D9
- #define LORA_ANT_SWITCH   A4
-
- static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCLK, LORA_CS,
-                        LORA_RESET, LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3,
-                        LORA_DIO4, LORA_DIO5, NC, NC, NC, NC, LORA_ANT_SWITCH,
-                        NC, NC);
-
+static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCLK, LORA_CS, LORA_RESET,
+                              LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4, LORA_DIO5,
+                              NC, NC, NC, NC, LORA_ANT_SWITCH, NC, NC);
 #endif //TARGET_K64F
 
- /**
-  * Constructing a LoRaRadio object for Semtech 1276 radio
-  * available on ST B-L072Z-LRWAN1 LoRa®Discovery kit
-  * https://os.mbed.com/platforms/ST-Discovery-LRWAN1/
-  */
+/**
+ * Constructing a LoRaRadio object for Semtech SX1276 radio
+ * available on WISE-1510 module
+ * http://www.advantech.com/products/ed549ce6-ff1b-4f36-a350-2ecabeb2418a/wise-1510/mod_5904a91b-0a62-4d34-97f6-b5c6b2c1ac91
+ */
+#if TARGET_WISE_1510
+#define LORA_SPI_MOSI   PB_5
+#define LORA_SPI_MISO   PB_4
+#define LORA_SPI_SCK    PB_3
+#define LORA_CS         PA_15
+#define LORA_RESET      PC_14
+#define LORA_DIO0       PC_13
+#define LORA_DIO1       PB_8
+#define LORA_DIO2       PB_7
+#define LORA_DIO3       PD_2
+#define LORA_DIO4       PC_11
+#define LORA_DIO5       PC_10
+#define LORA_ANT_SWITCH PC_15
+
+static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCK, LORA_CS, LORA_RESET,
+                              LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4, LORA_DIO5,
+                              NC, NC, NC, NC, LORA_ANT_SWITCH, NC, NC);
+#endif //TARGET_WISE_1510
+
+/**
+ * Constructing a LoRaRadio object for Semtech 1276 radio
+ * available on ST B-L072Z-LRWAN1 LoRa®Discovery kit
+ * https://os.mbed.com/platforms/ST-Discovery-LRWAN1/
+ */
 #if TARGET_DISCO_L072CZ_LRWAN1
+#define LORA_SPI_MOSI   PA_7
+#define LORA_SPI_MISO   PA_6
+#define LORA_SPI_SCLK   PB_3
+#define LORA_CS         PA_15
+#define LORA_RESET      PC_0
+#define LORA_DIO0       PB_4
+#define LORA_DIO1       PB_1
+#define LORA_DIO2       PB_0
+#define LORA_DIO3       PC_13
+#define LORA_DIO4       PA_5
+#define LORA_DIO5       PA_4
+#define LORA_ANT_RX     PA_1
+#define LORA_ANT_TX     PC_2
+#define LORA_ANT_BOOST  PC_1
+#define LORA_TCXO       PA_12   // 32 MHz
 
- #define LORA_SPI_MOSI   PA_7
- #define LORA_SPI_MISO   PA_6
- #define LORA_SPI_SCLK   PB_3
- #define LORA_CS         PA_15
- #define LORA_RESET      PC_0
- #define LORA_DIO0       PB_4
- #define LORA_DIO1       PB_1
- #define LORA_DIO2       PB_0
- #define LORA_DIO3       PC_13
- #define LORA_DIO4       PA_5
- #define LORA_DIO5       PA_4
- #define LORA_ANT_RX     PA_1
- #define LORA_ANT_TX     PC_2
- #define LORA_ANT_BOOST  PC_1
- #define LORA_TCXO       PA_12   // 32 MHz
-
- static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCLK, LORA_CS,
-                        LORA_RESET, LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3,
-                        LORA_DIO4, NC, NC, NC, LORA_ANT_TX, LORA_ANT_RX, NC,
-                        LORA_ANT_BOOST, LORA_TCXO);
-
+static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCLK, LORA_CS, LORA_RESET,
+                              LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4, NC,
+                              NC, NC, LORA_ANT_TX, LORA_ANT_RX, NC, LORA_ANT_BOOST, LORA_TCXO);
 #endif //TARGET_DISCO_L072CZ_LRWAN1
 
 /**
  * Returns a reference the LoRaRadio object
  */
- LoRaRadio& get_lora_radio()
- {
-     return radio;
- }
-
+LoRaRadio& get_lora_radio()
+{
+    return radio;
+}
