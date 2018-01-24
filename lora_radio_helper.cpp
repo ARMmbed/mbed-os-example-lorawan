@@ -91,10 +91,11 @@ static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCK, LORA_C
 
 /**
  * Constructing a LoRaRadio object for Semtech 1276 radio
- * available on ST B-L072Z-LRWAN1 LoRa®Discovery kit
+ * available on muRata LoRa modules
+ * https://www.murata.com/en-eu/products/lpwa/lora
  * https://os.mbed.com/platforms/ST-Discovery-LRWAN1/
  */
-#if TARGET_DISCO_L072CZ_LRWAN1
+#if defined(TARGET_DISCO_L072CZ_LRWAN1) || defined(TARGET_CMWX1ZZABZ_078)
 #define LORA_SPI_MOSI   PA_7
 #define LORA_SPI_MISO   PA_6
 #define LORA_SPI_SCLK   PB_3
@@ -114,7 +115,7 @@ static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCK, LORA_C
 static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCLK, LORA_CS, LORA_RESET,
                               LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4, NC,
                               NC, NC, LORA_ANT_TX, LORA_ANT_RX, NC, LORA_ANT_BOOST, LORA_TCXO);
-#endif //TARGET_DISCO_L072CZ_LRWAN1
+#endif
 
 /**
  * Returns a reference the LoRaRadio object
