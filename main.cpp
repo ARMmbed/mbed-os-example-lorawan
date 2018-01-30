@@ -150,8 +150,8 @@ static void send_message()
 
     if (ds1820.begin()) {
         ds1820.startConversion();
-        printf("\r\n Dummy Sensor Value = %3.1f \r\n", ds1820.read());
         sensor_value = ds1820.read();
+        printf("\r\n Dummy Sensor Value = %3.1f \r\n", sensor_value);
         ds1820.startConversion();
     } else {
         printf("\r\n No sensor found \r\n");
