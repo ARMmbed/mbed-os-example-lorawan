@@ -105,15 +105,13 @@ static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCK, LORA_C
 #define LORA_DIO1       PB_1
 #define LORA_DIO2       PB_0
 #define LORA_DIO3       PC_13
-#define LORA_DIO4       PA_5
-#define LORA_DIO5       PA_4
 #define LORA_ANT_RX     PA_1
 #define LORA_ANT_TX     PC_2
 #define LORA_ANT_BOOST  PC_1
 #define LORA_TCXO       PA_12   // 32 MHz
 
 static SX1276_LoRaRadio radio(LORA_SPI_MOSI, LORA_SPI_MISO, LORA_SPI_SCLK, LORA_CS, LORA_RESET,
-                              LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4, NC,
+                              LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, NC, NC,
                               NC, NC, LORA_ANT_TX, LORA_ANT_RX, NC, LORA_ANT_BOOST, LORA_TCXO);
 #endif
 
