@@ -34,7 +34,7 @@ static SX1272_LoRaRadio radio(LORA_MOSI, LORA_MISO, LORA_SCK, LORA_NSS, LORA_RES
  * available on MultiTech xDot platform
  * https://os.mbed.com/platforms/MTS-xDot-L151CC/
  */
-#if TARGET_XDOT_L151CC
+#if defined(TARGET_XDOT_L151CC) || defined(TARGET_MTB_MTS_XDOT)
 static SX1272_LoRaRadio radio(LORA_MOSI, LORA_MISO, LORA_SCK, LORA_NSS, LORA_RESET,
                               LORA_DIO0, LORA_DIO1, LORA_DIO2, LORA_DIO3, LORA_DIO4, NC,
                               NC, NC, NC, NC, NC, NC);
