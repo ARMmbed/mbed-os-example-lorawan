@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#include "netsocket/LoRaRadio.h"
+#include "lorawan/LoRaRadio.h"
 
 #ifndef APP_LORA_RADIO_HELPER_H_
 #define APP_LORA_RADIO_HELPER_H_
