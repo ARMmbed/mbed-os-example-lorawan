@@ -1,4 +1,34 @@
 {
+    "config": {
+        "lora-radio": {
+            "help": "Which radio to use (options: SX1272,SX1276)",
+            "value": "SX1272"
+        },
+
+        "lora-spi-mosi":       { "value": "D11" },
+        "lora-spi-miso":       { "value": "D12" },
+        "lora-spi-sclk":       { "value": "D13" },
+        "lora-cs":             { "value": "D10" },
+        "lora-reset":          { "value": "A0" },
+        "lora-dio0":           { "value": "D2" },
+        "lora-dio1":           { "value": "D3" },
+        "lora-dio2":           { "value": "D4" },
+        "lora-dio3":           { "value": "D5" },
+        "lora-dio4":           { "value": "D8" },
+        "lora-dio5":           { "value": "D9" },
+        "lora-rf-switch-ctl1": { "value": "NC" },
+        "lora-rf-switch-ctl2": { "value": "NC" },
+        "lora-txctl":          { "value": "NC" },
+        "lora-rxctl":          { "value": "NC" },
+        "lora-ant-switch":     { "value": "A4" },
+        "lora-pwr-amp-ctl":    { "value": "NC" },
+        "lora-tcxo":           { "value": "NC" },
+
+        "tx-timer": {
+            "help": "Sets up an application dependent transmission timer in ms. Used only when Duty Cycling is off for testing",
+            "value": 10000
+        }
+    },
     "target_overrides": {
         "*": {
             "platform.stdio-convert-newlines": true,
@@ -8,7 +38,129 @@
             "lora.duty-cycle-on": true,
             "lora.device-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
             "lora.application-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
-            "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
+            "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
+        },
+
+        "DISCO_L072CZ_LRWAN1": {
+            "lora-radio":          "SX1276",
+            "lora-spi-mosi":       "PA_7",
+            "lora-spi-miso":       "PA_6",
+            "lora-spi-sclk":       "PB_3",
+            "lora-cs":             "PA_15",
+            "lora-reset":          "PC_0",
+            "lora-dio0":           "PB_4",
+            "lora-dio1":           "PB_1",
+            "lora-dio2":           "PB_0",
+            "lora-dio3":           "PC_13",
+            "lora-dio4":           "PA_5",
+            "lora-dio5":           "PA_4",
+            "lora-txctl":          "PA_1",
+            "lora-rxctl":          "PC_2",
+            "lora-ant-switch":     "NC",
+            "lora-pwr-amp-ctl":    "PC_1",
+            "lora-tcxo":           "PA_12"
+        },
+
+        "MTB_MURATA_ABZ": {
+            "lora-radio":          "SX1276",
+            "lora-spi-mosi":       "PA_7",
+            "lora-spi-miso":       "PA_6",
+            "lora-spi-sclk":       "PB_3",
+            "lora-cs":             "PA_15",
+            "lora-reset":          "PC_0",
+            "lora-dio0":           "PB_4",
+            "lora-dio1":           "PB_1",
+            "lora-dio2":           "PB_0",
+            "lora-dio3":           "PC_13",
+            "lora-dio4":           "PA_5",
+            "lora-dio5":           "PA_4",
+            "lora-txctl":          "PA_1",
+            "lora-rxctl":          "PC_2",
+            "lora-ant-switch":     "NC",
+            "lora-pwr-amp-ctl":    "PC_1",
+            "lora-tcxo":           "PA_12"
+        },
+
+        "XDOT_L151CC": {
+            "lora-radio":           "SX1272",
+            "lora-spi-mosi":        "LORA_MOSI",
+            "lora-spi-miso":        "LORA_MISO",
+            "lora-spi-sclk":        "LORA_SCK",
+            "lora-cs":              "LORA_NSS",
+            "lora-reset":           "LORA_RESET",
+            "lora-dio0":            "LORA_DIO0",
+            "lora-dio1":            "LORA_DIO1",
+            "lora-dio2":            "LORA_DIO2",
+            "lora-dio3":            "LORA_DIO3",
+            "lora-dio4":            "LORA_DIO4",
+            "lora-dio5":            "NC",
+            "lora-ant-switch":      "NC"
+        },
+
+        "MTB_MTS_XDOT": {
+            "lora-radio":           "SX1272",
+            "lora-spi-mosi":        "LORA_MOSI",
+            "lora-spi-miso":        "LORA_MISO",
+            "lora-spi-sclk":        "LORA_SCK",
+            "lora-cs":              "LORA_NSS",
+            "lora-reset":           "LORA_RESET",
+            "lora-dio0":            "LORA_DIO0",
+            "lora-dio1":            "LORA_DIO1",
+            "lora-dio2":            "LORA_DIO2",
+            "lora-dio3":            "LORA_DIO3",
+            "lora-dio4":            "LORA_DIO4",
+            "lora-dio5":            "NC",
+            "lora-ant-switch":      "NC"
+        },
+
+        "LTEK_FF1705": {
+            "lora-radio":           "SX1272",
+            "lora-spi-mosi":        "LORA_MOSI",
+            "lora-spi-miso":        "LORA_MISO",
+            "lora-spi-sclk":        "LORA_SCK",
+            "lora-cs":              "LORA_NSS",
+            "lora-reset":           "LORA_RESET",
+            "lora-dio0":            "LORA_DIO0",
+            "lora-dio1":            "LORA_DIO1",
+            "lora-dio2":            "LORA_DIO2",
+            "lora-dio3":            "LORA_DIO3",
+            "lora-dio4":            "LORA_DIO4",
+            "lora-dio5":            "NC",
+            "lora-ant-switch":      "NC"
+        },
+
+        "MTS_MDOT_F411RE": {
+            "lora-radio":           "SX1272",
+            "lora-spi-mosi":        "LORA_MOSI",
+            "lora-spi-miso":        "LORA_MISO",
+            "lora-spi-sclk":        "LORA_SCK",
+            "lora-cs":              "LORA_NSS",
+            "lora-reset":           "LORA_RESET",
+            "lora-dio0":            "LORA_DIO0",
+            "lora-dio1":            "LORA_DIO1",
+            "lora-dio2":            "LORA_DIO2",
+            "lora-dio3":            "LORA_DIO3",
+            "lora-dio4":            "LORA_DIO4",
+            "lora-dio5":            "LORA_DIO5",
+            "lora-ant-switch":      "NC",
+            "lora-txctl":           "LORA_TXCTL",
+            "lora-rxctl":           "LORA_RXCTL"
+        },
+
+        "MTB_ADV_WISE_1510": {
+            "lora-radio":           "SX1276",
+            "lora-spi-mosi":        "LORA_MOSI",
+            "lora-spi-miso":        "LORA_MISO",
+            "lora-spi-sclk":        "LORA_SCK",
+            "lora-cs":              "LORA_CS",
+            "lora-reset":           "LORA_RESET",
+            "lora-dio0":            "LORA_DIO0",
+            "lora-dio1":            "LORA_DIO1",
+            "lora-dio2":            "LORA_DIO2",
+            "lora-dio3":            "LORA_DIO3",
+            "lora-dio4":            "LORA_DIO4",
+            "lora-dio5":            "LORA_DIO5",
+            "lora-ant-switch":      "LORA_ANT_SWITCH"
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
