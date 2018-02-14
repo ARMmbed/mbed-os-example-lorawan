@@ -71,7 +71,7 @@ static EventQueue ev_queue(MAX_NUMBER_OF_EVENTS * EVENTS_EVENT_SIZE);
  * This will be passed to the LoRaWAN stack to queue events for the
  * application which in turn drive the application.
  */
-static void lora_event_handler(lorawan_events_t event);
+static void lora_event_handler(lorawan_event_t event);
 
 /**
  * Constructing Mbed LoRaWANInterface and passing it down the radio object.
@@ -203,7 +203,7 @@ static void receive_message()
 /**
  * Event handler
  */
-static void lora_event_handler(lorawan_events_t event)
+static void lora_event_handler(lorawan_event_t event)
 {
     switch (event) {
         case CONNECTED:
