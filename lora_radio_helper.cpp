@@ -18,20 +18,50 @@
 #include "SX1272_LoRaRadio.h"
 #include "SX1276_LoRaRadio.h"
 
-#if MBED_CONF_APP_LORA_RADIO == SX1272
-static SX1272_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI, MBED_CONF_APP_LORA_SPI_MISO, MBED_CONF_APP_LORA_SPI_SCLK,
-                                MBED_CONF_APP_LORA_CS, MBED_CONF_APP_LORA_RESET, MBED_CONF_APP_LORA_DIO0,
-                                MBED_CONF_APP_LORA_DIO1, MBED_CONF_APP_LORA_DIO2, MBED_CONF_APP_LORA_DIO3,
-                                MBED_CONF_APP_LORA_DIO4, MBED_CONF_APP_LORA_DIO5, MBED_CONF_APP_LORA_RF_SWITCH_CTL1,
-                                MBED_CONF_APP_LORA_RF_SWITCH_CTL2, MBED_CONF_APP_LORA_TXCTL, MBED_CONF_APP_LORA_RXCTL,
-                                MBED_CONF_APP_LORA_ANT_SWITCH, MBED_CONF_APP_LORA_PWR_AMP_CTL);
-#elif MBED_CONF_APP_LORA_RADIO == SX1276
-static SX1276_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI, MBED_CONF_APP_LORA_SPI_MISO, MBED_CONF_APP_LORA_SPI_SCLK,
-                                MBED_CONF_APP_LORA_CS, MBED_CONF_APP_LORA_RESET, MBED_CONF_APP_LORA_DIO0,
-                                MBED_CONF_APP_LORA_DIO1, MBED_CONF_APP_LORA_DIO2, MBED_CONF_APP_LORA_DIO3,
-                                MBED_CONF_APP_LORA_DIO4, MBED_CONF_APP_LORA_DIO5, MBED_CONF_APP_LORA_RF_SWITCH_CTL1,
-                                MBED_CONF_APP_LORA_RF_SWITCH_CTL2, MBED_CONF_APP_LORA_TXCTL, MBED_CONF_APP_LORA_RXCTL,
-                                MBED_CONF_APP_LORA_ANT_SWITCH, MBED_CONF_APP_LORA_PWR_AMP_CTL, MBED_CONF_APP_LORA_TCXO);
+#define SX1272   0xFF
+#define SX1276   0xEE
+
+#if (MBED_CONF_APP_LORA_RADIO == SX1272)
+
+    static SX1272_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
+                                  MBED_CONF_APP_LORA_SPI_MISO,
+                                  MBED_CONF_APP_LORA_SPI_SCLK,
+                                  MBED_CONF_APP_LORA_CS,
+                                  MBED_CONF_APP_LORA_RESET,
+                                  MBED_CONF_APP_LORA_DIO0,
+                                  MBED_CONF_APP_LORA_DIO1,
+                                  MBED_CONF_APP_LORA_DIO2,
+                                  MBED_CONF_APP_LORA_DIO3,
+                                  MBED_CONF_APP_LORA_DIO4,
+                                  MBED_CONF_APP_LORA_DIO5,
+                                  MBED_CONF_APP_LORA_RF_SWITCH_CTL1,
+                                  MBED_CONF_APP_LORA_RF_SWITCH_CTL2,
+                                  MBED_CONF_APP_LORA_TXCTL,
+                                  MBED_CONF_APP_LORA_RXCTL,
+                                  MBED_CONF_APP_LORA_ANT_SWITCH,
+                                  MBED_CONF_APP_LORA_PWR_AMP_CTL);
+
+#elif (MBED_CONF_APP_LORA_RADIO == SX1276)
+
+    static SX1276_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
+                                  MBED_CONF_APP_LORA_SPI_MISO,
+                                  MBED_CONF_APP_LORA_SPI_SCLK,
+                                  MBED_CONF_APP_LORA_CS,
+                                  MBED_CONF_APP_LORA_RESET,
+                                  MBED_CONF_APP_LORA_DIO0,
+                                  MBED_CONF_APP_LORA_DIO1,
+                                  MBED_CONF_APP_LORA_DIO2,
+                                  MBED_CONF_APP_LORA_DIO3,
+                                  MBED_CONF_APP_LORA_DIO4,
+                                  MBED_CONF_APP_LORA_DIO5,
+                                  MBED_CONF_APP_LORA_RF_SWITCH_CTL1,
+                                  MBED_CONF_APP_LORA_RF_SWITCH_CTL2,
+                                  MBED_CONF_APP_LORA_TXCTL,
+                                  MBED_CONF_APP_LORA_RXCTL,
+                                  MBED_CONF_APP_LORA_ANT_SWITCH,
+                                  MBED_CONF_APP_LORA_PWR_AMP_CTL,
+                                  MBED_CONF_APP_LORA_TCXO);
+
 #else
     #error "Unknown LoRa radio specified (SX1272,SX1276 are valid)"
 #endif
