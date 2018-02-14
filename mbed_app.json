@@ -2,7 +2,7 @@
     "config": {
         "lora-radio": {
             "help": "Which radio to use (options: SX1272,SX1276)",
-            "value": "SX1272"
+            "value": "SX1276"
         },
 
         "lora-spi-mosi":       { "value": "D11" },
@@ -22,12 +22,7 @@
         "lora-rxctl":          { "value": "NC" },
         "lora-ant-switch":     { "value": "A4" },
         "lora-pwr-amp-ctl":    { "value": "NC" },
-        "lora-tcxo":           { "value": "NC" },
-
-        "tx-timer": {
-            "help": "Sets up an application dependent transmission timer in ms. Used only when Duty Cycling is off for testing",
-            "value": 10000
-        }
+        "lora-tcxo":           { "value": "NC" }
     },
     "target_overrides": {
         "*": {
