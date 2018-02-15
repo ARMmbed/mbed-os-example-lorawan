@@ -39,7 +39,8 @@
                                   MBED_CONF_APP_LORA_TXCTL,
                                   MBED_CONF_APP_LORA_RXCTL,
                                   MBED_CONF_APP_LORA_ANT_SWITCH,
-                                  MBED_CONF_APP_LORA_PWR_AMP_CTL);
+                                  MBED_CONF_APP_LORA_PWR_AMP_CTL,
+                                  MBED_CONF_APP_LORA_TCXO);
 
 #elif (MBED_CONF_APP_LORA_RADIO == SX1276)
 
