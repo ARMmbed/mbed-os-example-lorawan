@@ -49,6 +49,8 @@
             "lora-dio3":           "PC_13",
             "lora-dio4":           "PA_5",
             "lora-dio5":           "PA_4",
+            "lora-rf-switch-ctl1": "NC",
+            "lora-rf-switch-ctl2": "NC",
             "lora-txctl":          "PA_1",
             "lora-rxctl":          "PC_2",
             "lora-ant-switch":     "NC",
@@ -69,6 +71,8 @@
             "lora-dio3":           "PC_13",
             "lora-dio4":           "PA_5",
             "lora-dio5":           "PA_4",
+            "lora-rf-switch-ctl1": "NC",
+            "lora-rf-switch-ctl2": "NC",
             "lora-txctl":          "PA_1",
             "lora-rxctl":          "PC_2",
             "lora-ant-switch":     "NC",
@@ -89,7 +93,13 @@
             "lora-dio3":            "LORA_DIO3",
             "lora-dio4":            "LORA_DIO4",
             "lora-dio5":            "NC",
-            "lora-ant-switch":      "NC"
+            "lora-rf-switch-ctl1":  "NC",
+            "lora-rf-switch-ctl2":  "NC",
+            "lora-txctl":           "NC",
+            "lora-rxctl":           "NC",
+            "lora-ant-switch":      "NC",
+            "lora-pwr-amp-ctl":     "NC",
+            "lora-tcxo":            "NC"
         },
 
         "MTB_MTS_XDOT": {
@@ -105,7 +115,13 @@
             "lora-dio3":            "LORA_DIO3",
             "lora-dio4":            "LORA_DIO4",
             "lora-dio5":            "NC",
-            "lora-ant-switch":      "NC"
+            "lora-rf-switch-ctl1":  "NC",
+            "lora-rf-switch-ctl2":  "NC",
+            "lora-txctl":           "NC",
+            "lora-rxctl":           "NC",
+            "lora-ant-switch":      "NC",
+            "lora-pwr-amp-ctl":     "NC",
+            "lora-tcxo":            "NC"
         },
 
         "LTEK_FF1705": {
@@ -121,7 +137,13 @@
             "lora-dio3":            "LORA_DIO3",
             "lora-dio4":            "LORA_DIO4",
             "lora-dio5":            "NC",
-            "lora-ant-switch":      "NC"
+            "lora-rf-switch-ctl1":  "NC",
+            "lora-rf-switch-ctl2":  "NC",
+            "lora-txctl":           "NC",
+            "lora-rxctl":           "NC",
+            "lora-ant-switch":      "NC",
+            "lora-pwr-amp-ctl":     "NC",
+            "lora-tcxo":            "NC"
         },
 
         "MTS_MDOT_F411RE": {
@@ -137,9 +159,13 @@
             "lora-dio3":            "LORA_DIO3",
             "lora-dio4":            "LORA_DIO4",
             "lora-dio5":            "LORA_DIO5",
-            "lora-ant-switch":      "NC",
+            "lora-rf-switch-ctl1":  "NC",
+            "lora-rf-switch-ctl2":  "NC",
             "lora-txctl":           "LORA_TXCTL",
-            "lora-rxctl":           "LORA_RXCTL"
+            "lora-rxctl":           "LORA_RXCTL",
+            "lora-ant-switch":      "NC",
+            "lora-pwr-amp-ctl":     "NC",
+            "lora-tcxo":            "NC"
         },
 
         "MTB_ADV_WISE_1510": {
@@ -155,7 +181,13 @@
             "lora-dio3":            "LORA_DIO3",
             "lora-dio4":            "LORA_DIO4",
             "lora-dio5":            "LORA_DIO5",
-            "lora-ant-switch":      "LORA_ANT_SWITCH"
+            "lora-rf-switch-ctl1":  "NC",
+            "lora-rf-switch-ctl2":  "NC",
+            "lora-txctl":           "NC",
+            "lora-rxctl":           "NC",
+            "lora-ant-switch":      "LORA_ANT_SWITCH",
+            "lora-pwr-amp-ctl":     "NC",
+            "lora-tcxo":            "NC"
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
