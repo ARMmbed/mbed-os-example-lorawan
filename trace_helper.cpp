@@ -29,13 +29,13 @@ mbed::Serial pc(USBTX, USBRX, MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
  */
 #if defined(FEATURE_COMMON_PAL)
 
-    #include "rtos/Mutex.h"
+    #include "platform/PlatformMutex.h"
     #include "mbed_trace.h"
 
     /**
      * Local mutex object for synchronization
      */
-    static rtos::Mutex mutex;
+    static PlatformMutex mutex;
 
     static void serial_lock();
     static void serial_unlock();

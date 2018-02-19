@@ -141,6 +141,19 @@ Mbed LoRaWANStack initialized
 
 ```
 
+## [Optional] Adding trace library
+To enable Mbed trace, add to your `mbed_app.json` the following fields:
+
+```json
+    "target_overrides": {
+        "*": {
+            "target.features_add": ["COMMON_PAL"],
+            "mbed-trace.enable": true
+            }
+     }
+```
+The trace is disabled by default to save RAM.
+
 ## [Optional] Memory optimization 
 
 Using `Arm CC compiler` instead of `GCC` reduces `3K` of RAM. Currently the application takes about `15K` of static RAM with Arm CC, which spills over for the platforms with `20K` of RAM because you need to leave space, about `5K`, for dynamic allocation. So if you reduce the application stack size, you can barely fit into the 20K platforms.
@@ -153,6 +166,7 @@ For example, add the following into `config` section in your `mbed_app.json`:
 }
 ```
 
-Essentially you can make the whole application with Mbed LoRaWAN stack in 6K if you drop the RTOS from Mbed OS. 
+Essentially you can make the whole application with Mbed LoRaWAN stack in 6K if you drop the RTOS from Mbed OS and use a smaller standard C/C++ library like new-lib-nano. Please find instructions [here](https://os.mbed.com/blog/entry/Reducing-memory-usage-with-a-custom-prin/).
+ 
 
 For more information, please follow this [blog post](https://os.mbed.com/blog/entry/Reducing-memory-usage-by-tuning-RTOS-con/).
