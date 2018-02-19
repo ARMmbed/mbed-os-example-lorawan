@@ -1,10 +1,10 @@
 # Example LoRaWAN application for Mbed-OS
 
-This is an example application based on `Mbed-OS` LoRaWAN protocol APIs. The Mbed-OS LoRaWAN stack implementation is compliant with LoRaWAN v1.0.2 specification. 
+This is an example application based on `Mbed-OS` LoRaWAN protocol APIs. The Mbed-OS LoRaWAN stack implementation is compliant with LoRaWAN v1.0.2 specification.
 
 ## Getting started
 
-This application can work with any Network Server if you have correct credentials for the said Network Server. 
+This application can work with any Network Server if you have correct credentials for the said Network Server.
 
 ### Download the application
 
@@ -22,7 +22,7 @@ $ mbed deploy
 ### Add network credentials
 
 Open the file `mbed_app.json` in the root directory of your application.
-This file contains all the user specific configurations your application and the Mbed-OS LoRaWAN stack needs. 
+This file contains all the user specific configurations your application and the Mbed-OS LoRaWAN stack needs.
 
 #### For OTAA
 
@@ -48,7 +48,7 @@ In addition to that you need to provide  `Application Session Key`, `Network Ses
 ```json
 "lora.appskey": "{ YOUR_APPLICATION_SESSION_KEY }",
 "lora.nwkskey": "{ YOUR_NETWORK_SESSION_KEY }",
-"lora.device-address": "{ YOUR_DEVICE_ADDRESS } " 
+"lora.device-address": "{ YOUR_DEVICE_ADDRESS } "
 ```
 ## Configuring the application
 
@@ -76,20 +76,30 @@ LoRaWAN protocol is subjected to various country specific regulations concerning
 
 ### Duty cycling
 
-LoRaWAN v1.0.2 specifcation is exclusively duty cycle based. This application comes with duty cycle enabled by default, i.e., the Mbed-OS LoRaWAN stack enforces duty cycle. The stack keep track of transmissions on the channels in use and hence schedules transmissions on channels which become available in the shortest time possible.  We recommend to keep duty cycle on for compliance to your country specific regulation. 
+LoRaWAN v1.0.2 specifcation is exclusively duty cycle based. This application comes with duty cycle enabled by default, i.e., the Mbed-OS LoRaWAN stack enforces duty cycle. The stack keep track of transmissions on the channels in use and hence schedules transmissions on channels which become available in the shortest time possible.  We recommend to keep duty cycle on for compliance to your country specific regulation.
 
 However, user can define a timer value using `mbed_app.json` which can be used to perform a periodic uplink when the duty cycle is turned off. Such a setup should be used only for testing or with a large enough timer value. For example:
 
-```josn 
+```json
 "config": {
-	"tx-timer": 10000
+    "tx-timer": 10000
 },
 "target_overrides": {
-	"*": {
-		"lora.duty-cycle-on": false
-		},
-	}
+    "*": {
+        "lora.duty-cycle-on": false
+    }
 }
+```
+
+### Tracing
+
+To view debug information from the LoRaWAN stack and the radio drivers you can enable tracing. Note that this has an effect on memory usage, which is why it's disabled by default. Tracing is only available if Mbed RTOS is present.
+
+To enable tracing, add the following to `mbed_app.json` under `target_overrides.*`:
+
+```json
+            "target.features_add": ["COMMON_PAL"],
+            "mbed-trace.enable": true,
 ```
 
 ## Board & Module support
@@ -114,27 +124,27 @@ $ mbed compile -m YOUR_TARGET -t ARM
 
 ## Running the application
 
-Drag and drop the application binary from `BUILD/YOUR_TARGET/ARM/mbed-os-example-lora.bin` yo your Mbed enabled target hardware which appears as USB device on your host machine. 
+Drag and drop the application binary from `BUILD/YOUR_TARGET/ARM/mbed-os-example-lora.bin` yo your Mbed enabled target hardware which appears as USB device on your host machine.
 
 Attach a serial console emulator of your choice (for example, PuTTY, Minicom or screen) to your USB device. Set the baudrate to 115200 bit/s, and reset your board by pressing the reset button.
 
 You should see an output similar to this:
 
 ```
-Mbed LoRaWANStack initialized 
+Mbed LoRaWANStack initialized
 
- CONFIRMED message retries : 3 
+ CONFIRMED message retries : 3
 
- Adaptive data  rate (ADR) - Enabled 
+ Adaptive data  rate (ADR) - Enabled
 
  Connection - In Progress ...
 
- Connection - Successful 
+ Connection - Successful
 
- Dummy Sensor Value = 2.1 
+ Dummy Sensor Value = 2.1
 
- 25 bytes scheduled for transmission 
- 
+ 25 bytes scheduled for transmission
+
  Message Sent to Network Server
 
 ```
