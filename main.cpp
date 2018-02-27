@@ -74,9 +74,9 @@ static EventQueue ev_queue(MAX_NUMBER_OF_EVENTS * EVENTS_EVENT_SIZE);
 static void lora_event_handler(lorawan_event_t event);
 
 /**
- * Constructing Mbed LoRaWANInterface and passing it down the radio object.
+ * Pointer to LoRaWAN interface
  */
-static LoRaWANInterface lorawan(get_lora_radio());
+static LoRaWANInterface* lorawan = NULL;
 
 /**
  * Application specific callbacks
@@ -88,6 +88,10 @@ static lorawan_app_callbacks_t callbacks;
  */
 int main (void)
 {
+    // Constructing Mbed LoRaWANInterface and passing it down the radio object.
+    LoRaWANInterface lora(get_lora_radio());
+    lorawan = &lora;
+
     // setup tracing
     setup_trace();
 
@@ -95,7 +99,7 @@ int main (void)
     lorawan_status_t retcode;
 
     // Initialize LoRaWAN stack
-    if (lorawan.initialize(&ev_queue) != LORAWAN_STATUS_OK) {
+    if (lorawan->initialize(&ev_queue) != LORAWAN_STATUS_OK) {
         printf("\r\n LoRa initialization failed! \r\n");
         return -1;
     }
@@ -104,10 +108,10 @@ int main (void)
 
     // prepare application callbacks
     callbacks.events = mbed::callback(lora_event_handler);
-    lorawan.add_app_callbacks(&callbacks);
+    lorawan->add_app_callbacks(&callbacks);
 
     // Set number of retries in case of CONFIRMED messages
-    if (lorawan.set_confirmed_msg_retries(CONFIRMED_MSG_RETRY_COUNTER)
+    if (lorawan->set_confirmed_msg_retries(CONFIRMED_MSG_RETRY_COUNTER)
                                           != LORAWAN_STATUS_OK) {
         printf("\r\n set_confirmed_msg_retries failed! \r\n\r\n");
         return -1;
@@ -117,14 +121,14 @@ int main (void)
            CONFIRMED_MSG_RETRY_COUNTER);
 
     // Enable adaptive data rate
-    if (lorawan.enable_adaptive_datarate() != LORAWAN_STATUS_OK) {
+    if (lorawan->enable_adaptive_datarate() != LORAWAN_STATUS_OK) {
         printf("\r\n enable_adaptive_datarate failed! \r\n");
         return -1;
     }
 
     printf("\r\n Adaptive data  rate (ADR) - Enabled \r\n");
 
-    retcode = lorawan.connect();
+    retcode = lorawan->connect();
 
     if (retcode == LORAWAN_STATUS_OK ||
         retcode == LORAWAN_STATUS_CONNECT_IN_PROGRESS) {
@@ -161,7 +165,7 @@ static void send_message()
     packet_len = sprintf((char*) tx_buffer, "Dummy Sensor Value is %3.1f",
                     sensor_value);
 
-    retcode = lorawan.send(MBED_CONF_LORA_APP_PORT, tx_buffer, packet_len,
+    retcode = lorawan->send(MBED_CONF_LORA_APP_PORT, tx_buffer, packet_len,
                            MSG_CONFIRMED_FLAG);
 
     if (retcode < 0) {
@@ -180,7 +184,7 @@ static void send_message()
 static void receive_message()
 {
     int16_t retcode;
-    retcode = lorawan.receive(MBED_CONF_LORA_APP_PORT, rx_buffer,
+    retcode = lorawan->receive(MBED_CONF_LORA_APP_PORT, rx_buffer,
                               LORAMAC_PHY_MAXPAYLOAD,
                               MSG_CONFIRMED_FLAG|MSG_UNCONFIRMED_FLAG);
 
