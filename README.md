@@ -36,7 +36,7 @@ Please select your radio type by modifying the `lora-radio` field and providing 
 
 ### Add network credentials
 
-Open the file `mbed_app.json` in the root directory of your application. This file contains all the user specific configurations your application and the Mbed OS LoRaWAN stack need. 
+Open the file `mbed_app.json` in the root directory of your application. This file contains all the user specific configurations your application and the Mbed OS LoRaWAN stack need. Network credentials are typically provided by LoRa network provider.
 
 #### For OTAA
 
