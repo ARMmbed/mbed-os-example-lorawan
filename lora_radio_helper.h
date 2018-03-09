@@ -20,12 +20,56 @@
 #ifndef APP_LORA_RADIO_HELPER_H_
 #define APP_LORA_RADIO_HELPER_H_
 
-/**
- * Helper function for the application to
- * get access to a LoRaRadio object. Based upon the target platform,
- * a certain radio driver is selected, constructed and returned to the
- * application.
- */
-LoRaRadio& get_lora_radio();
+#include "SX1272_LoRaRadio.h"
+#include "SX1276_LoRaRadio.h"
+
+#define SX1272   0xFF
+#define SX1276   0xEE
+
+#if (MBED_CONF_APP_LORA_RADIO == SX1272)
+
+    SX1272_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
+                           MBED_CONF_APP_LORA_SPI_MISO,
+                           MBED_CONF_APP_LORA_SPI_SCLK,
+                           MBED_CONF_APP_LORA_CS,
+                           MBED_CONF_APP_LORA_RESET,
+                           MBED_CONF_APP_LORA_DIO0,
+                           MBED_CONF_APP_LORA_DIO1,
+                           MBED_CONF_APP_LORA_DIO2,
+                           MBED_CONF_APP_LORA_DIO3,
+                           MBED_CONF_APP_LORA_DIO4,
+                           MBED_CONF_APP_LORA_DIO5,
+                           MBED_CONF_APP_LORA_RF_SWITCH_CTL1,
+                           MBED_CONF_APP_LORA_RF_SWITCH_CTL2,
+                           MBED_CONF_APP_LORA_TXCTL,
+                           MBED_CONF_APP_LORA_RXCTL,
+                           MBED_CONF_APP_LORA_ANT_SWITCH,
+                           MBED_CONF_APP_LORA_PWR_AMP_CTL,
+                           MBED_CONF_APP_LORA_TCXO);
+
+#elif (MBED_CONF_APP_LORA_RADIO == SX1276)
+
+    SX1276_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
+                           MBED_CONF_APP_LORA_SPI_MISO,
+                           MBED_CONF_APP_LORA_SPI_SCLK,
+                           MBED_CONF_APP_LORA_CS,
+                           MBED_CONF_APP_LORA_RESET,
+                           MBED_CONF_APP_LORA_DIO0,
+                           MBED_CONF_APP_LORA_DIO1,
+                           MBED_CONF_APP_LORA_DIO2,
+                           MBED_CONF_APP_LORA_DIO3,
+                           MBED_CONF_APP_LORA_DIO4,
+                           MBED_CONF_APP_LORA_DIO5,
+                           MBED_CONF_APP_LORA_RF_SWITCH_CTL1,
+                           MBED_CONF_APP_LORA_RF_SWITCH_CTL2,
+                           MBED_CONF_APP_LORA_TXCTL,
+                           MBED_CONF_APP_LORA_RXCTL,
+                           MBED_CONF_APP_LORA_ANT_SWITCH,
+                           MBED_CONF_APP_LORA_PWR_AMP_CTL,
+                           MBED_CONF_APP_LORA_TCXO);
+
+#else
+    #error "Unknown LoRa radio specified (SX1272,SX1276 are valid)"
+#endif
 
 #endif /* APP_LORA_RADIO_HELPER_H_ */
