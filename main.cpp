@@ -15,6 +15,11 @@
  * limitations under the License.
  */
 #include <stdio.h>
+
+#if MBED_CONF_APP_LORAWAN_ENABLED
+
+#ifdef DEVICE_SPI
+
 #include "lorawan/LoRaWANInterface.h"
 #include "lorawan/system/lorawan_data_structures.h"
 #include "events/EventQueue.h"
@@ -137,7 +142,10 @@ int main (void)
 
     // make your event queue dispatching events forever
     ev_queue.dispatch_forever();
+
+    return 0;
 }
+
 
 /**
  * Sends a message to the Network Server
@@ -251,4 +259,12 @@ static void lora_event_handler(lorawan_event_t event)
     }
 }
 
+#endif //DEVICE_SPI
+
+#else
+int main (void)
+{
+    return 0;
+}
+#endif //MBED_CONF_APP_LORAWAN_ENABLED
 // EOF

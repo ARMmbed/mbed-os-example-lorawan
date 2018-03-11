@@ -5,6 +5,8 @@
             "value": "SX1276"
         },
 
+        "lorawan-enabled":     { "value": false},
+
         "lora-spi-mosi":       { "value": "NC" },
         "lora-spi-miso":       { "value": "NC" },
         "lora-spi-sclk":       { "value": "NC" },
@@ -37,6 +39,8 @@
         },
 
         "K64F": {
+            "lorawan-enabled":     true,
+
             "lora-spi-mosi":       "D11",
             "lora-spi-miso":       "D12",
             "lora-spi-sclk":       "D13",
@@ -58,6 +62,8 @@
         },
 
         "DISCO_L072CZ_LRWAN1": {
+            "lorawan-enabled":      true,
+
             "lora-radio":          "SX1276",
             "lora-spi-mosi":       "PA_7",
             "lora-spi-miso":       "PA_6",
@@ -80,6 +86,8 @@
         },
 
         "MTB_MURATA_ABZ": {
+            "lorawan-enabled":      true,
+
             "lora-radio":          "SX1276",
             "lora-spi-mosi":       "PA_7",
             "lora-spi-miso":       "PA_6",
@@ -102,6 +110,8 @@
         },
 
         "XDOT_L151CC": {
+            "lorawan-enabled":      true,
+
             "lora-radio":           "SX1272",
             "lora-spi-mosi":        "LORA_MOSI",
             "lora-spi-miso":        "LORA_MISO",
@@ -124,6 +134,8 @@
         },
 
         "MTB_MTS_XDOT": {
+            "lorawan-enabled":      true,
+
             "lora-radio":           "SX1272",
             "lora-spi-mosi":        "LORA_MOSI",
             "lora-spi-miso":        "LORA_MISO",
@@ -146,6 +158,8 @@
         },
 
         "LTEK_FF1705": {
+            "lorawan-enabled":      true,
+
             "lora-radio":           "SX1272",
             "lora-spi-mosi":        "LORA_MOSI",
             "lora-spi-miso":        "LORA_MISO",
@@ -168,6 +182,8 @@
         },
 
         "MTS_MDOT_F411RE": {
+            "lorawan-enabled":      true,
+
             "lora-radio":           "SX1272",
             "lora-spi-mosi":        "LORA_MOSI",
             "lora-spi-miso":        "LORA_MISO",
@@ -190,6 +206,8 @@
         },
 
         "MTB_ADV_WISE_1510": {
+            "lorawan-enabled":      true,
+
             "lora-radio":           "SX1276",
             "lora-spi-mosi":        "SPI_RF_MOSI",
             "lora-spi-miso":        "SPI_RF_MISO",
@@ -212,6 +230,8 @@
         },
 
         "MTB_RAK811": {
+            "lorawan-enabled":     true,
+
             "lora-radio":          "SX1276",
             "lora-spi-mosi":       "SPI_RF_MOSI",
             "lora-spi-miso":       "SPI_RF_MISO",
