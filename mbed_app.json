@@ -4,6 +4,7 @@
             "help": "Which radio to use (options: SX1272,SX1276)",
             "value": "SX1276"
         },
+        "main_stack_size":     { "value": 4096 },
 
         "lorawan-enabled":     { "value": false},
 
@@ -62,6 +63,7 @@
         },
 
         "DISCO_L072CZ_LRWAN1": {
+            "main_stack_size":      3072,
             "lorawan-enabled":      true,
 
             "lora-radio":          "SX1276",
