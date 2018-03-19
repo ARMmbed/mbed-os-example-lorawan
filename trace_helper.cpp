@@ -77,7 +77,7 @@ mbed::Serial pc(USBTX, USBRX, MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
      */
     static void trace_printer(const char* str)
     {
-        printf("%s\r\n", str);
+        pc.printf("%s\r\n", str);
     }
 
 #else
