@@ -31,8 +31,11 @@
 
 using namespace events;
 
-uint8_t tx_buffer[LORAMAC_PHY_MAXPAYLOAD];
-uint8_t rx_buffer[LORAMAC_PHY_MAXPAYLOAD];
+// Max payload size can be LORAMAC_PHY_MAXPAYLOAD.
+// This example only communicates with much shorter messages (<30 bytes).
+// If longer messages are used, these buffers must be changed accordingly.
+uint8_t tx_buffer[30];
+uint8_t rx_buffer[30];
 
 /*
  * Sets up an application dependent transmission timer in ms. Used only when Duty Cycling is off for testing
@@ -41,10 +44,10 @@ uint8_t rx_buffer[LORAMAC_PHY_MAXPAYLOAD];
 
 /**
  * Maximum number of events for the event queue.
- * 16 is the safe number for the stack events, however, if application
+ * 10 is the safe number for the stack events, however, if application
  * also uses the queue for whatever purposes, this number should be increased.
  */
-#define MAX_NUMBER_OF_EVENTS            16
+#define MAX_NUMBER_OF_EVENTS            10
 
 /**
  * Maximum number of retries for CONFIRMED messages before giving up
@@ -179,7 +182,7 @@ static void send_message()
     }
 
     printf("\r\n %d bytes scheduled for transmission \r\n", retcode);
-    memset(tx_buffer, 0, LORAMAC_PHY_MAXPAYLOAD);
+    memset(tx_buffer, 0, sizeof(tx_buffer));
 }
 
 /**
@@ -189,7 +192,7 @@ static void receive_message()
 {
     int16_t retcode;
     retcode = lorawan.receive(MBED_CONF_LORA_APP_PORT, rx_buffer,
-                              LORAMAC_PHY_MAXPAYLOAD,
+                              sizeof(rx_buffer),
                               MSG_CONFIRMED_FLAG|MSG_UNCONFIRMED_FLAG);
 
     if (retcode < 0) {
@@ -205,7 +208,7 @@ static void receive_message()
 
     printf("\r\n Data Length: %d\r\n", retcode);
 
-    memset(rx_buffer, 0, LORAMAC_PHY_MAXPAYLOAD);
+    memset(rx_buffer, 0, sizeof(rx_buffer));
 }
 
 /**

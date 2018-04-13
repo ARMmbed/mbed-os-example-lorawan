@@ -152,7 +152,9 @@ To enable Mbed trace, add to your `mbed_app.json` the following fields:
             }
      }
 ```
-The trace is disabled by default to save RAM.
+The trace is disabled by default to save RAM and reduce main stack usage (see chapter Memory optimization).
+
+**Please note that some targets with small RAM size (e.g. DISCO_L072CZ_LRWAN1 and MTB_MURATA_ABZ) mbed traces cannot be enabled without increasing the default** `"main_stack_size": 1024`**.**
 
 ## [Optional] Memory optimization 
 
