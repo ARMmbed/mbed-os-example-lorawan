@@ -64,7 +64,7 @@
         },
 
         "DISCO_L072CZ_LRWAN1": {
-            "main_stack_size":      3072,
+            "main_stack_size":      1024,
             "lorawan-enabled":      true,
 
             "lora-radio":          "SX1276",
@@ -89,6 +89,7 @@
         },
 
         "MTB_MURATA_ABZ": {
+            "main_stack_size":      1024,
             "lorawan-enabled":      true,
 
             "lora-radio":          "SX1276",
