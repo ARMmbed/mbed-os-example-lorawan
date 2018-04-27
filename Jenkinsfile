@@ -99,10 +99,10 @@ def buildStep(target, compilerLabel, toolchain) {
           // Adjust stack size and crystal values
           if ("${target}" == "DISCO_L072CZ_LRWAN1") {
             if (isUnix()) {
-              sh "sed -i 's/#define RCC_HSICALIBRATION_DEFAULT     ((uint32_t)0x10U)/#define RCC_HSICALIBRATION_DEFAULT     ((uint32_t)0x13U)/' \
+              sh "sed -i 's/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x10)/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x13)/' \
               mbed-os/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_rcc.h"
             } else {
-              bat "sed -i 's/#define RCC_HSICALIBRATION_DEFAULT     ((uint32_t)0x10U)/#define RCC_HSICALIBRATION_DEFAULT     ((uint32_t)0x13U)/' \
+              bat "sed -i 's/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x10)/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x13)/' \
               mbed-os/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_rcc.h"
             } 
           }
@@ -111,12 +111,12 @@ def buildStep(target, compilerLabel, toolchain) {
             if (isUnix()) {
               sh "sed -i 's/define symbol __size_heap__   = 0x800;/define symbol __size_heap__   = 0x1000;/' \
               mbed-os/targets/TARGET_STM/TARGET_STM32L0/TARGET_STM32L0x2xZ/device/TOOLCHAIN_IAR/stm32l082xZ.icf"
-              sh "sed -i 's/#define RCC_HSICALIBRATION_DEFAULT     ((uint32_t)0x10U)/#define RCC_HSICALIBRATION_DEFAULT     ((uint32_t)0x16U)/' \
+              sh "sed -i 's/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x10)/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x16)/' \
               mbed-os/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_rcc.h"
             } else {
               bat "sed -i 's/define symbol __size_heap__   = 0x800;/define symbol __size_heap__   = 0x1000;/' \
               mbed-os/targets/TARGET_STM/TARGET_STM32L0/TARGET_STM32L0x2xZ/device/TOOLCHAIN_IAR/stm32l082xZ.icf"
-              bat "sed -i 's/#define RCC_HSICALIBRATION_DEFAULT     ((uint32_t)0x10U)/#define RCC_HSICALIBRATION_DEFAULT     ((uint32_t)0x16U)/' \
+              bat "sed -i 's/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x10)/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x16)/' \
               mbed-os/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_rcc.h"
             } 
           }
