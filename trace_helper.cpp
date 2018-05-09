@@ -15,13 +15,6 @@
  * limitations under the License.
  */
 
-#include "drivers/Serial.h"
-
-/**
- * Serial object for console tracing
- */
-mbed::Serial pc(USBTX, USBRX, MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
-
 /**
  * If we have tracing library available, we can see traces from within the
  * stack. The library could be made unavailable by removing FEATURE_COMMON_PAL
@@ -39,7 +32,6 @@ mbed::Serial pc(USBTX, USBRX, MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
 
     static void serial_lock();
     static void serial_unlock();
-    static void trace_printer(const char* str);
 
     /**
      * Sets up trace for the application
@@ -52,7 +44,6 @@ mbed::Serial pc(USBTX, USBRX, MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
         mbed_trace_mutex_wait_function_set(serial_lock);
         mbed_trace_mutex_release_function_set(serial_unlock);
         mbed_trace_init();
-        mbed_trace_print_function_set(trace_printer);
     }
 
     /**
@@ -69,15 +60,6 @@ mbed::Serial pc(USBTX, USBRX, MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
     static void serial_unlock()
     {
         mutex.unlock();
-    }
-
-    /**
-     * Prints the Mbed trace, used by trace library.
-     * Not intended for local use.
-     */
-    static void trace_printer(const char* str)
-    {
-        pc.printf("%s\r\n", str);
     }
 
 #else
