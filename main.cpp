@@ -16,10 +16,6 @@
  */
 #include <stdio.h>
 
-#if MBED_CONF_APP_LORAWAN_ENABLED
-
-#ifdef DEVICE_SPI
-
 #include "lorawan/LoRaWANInterface.h"
 #include "lorawan/system/lorawan_data_structures.h"
 #include "events/EventQueue.h"
@@ -262,12 +258,4 @@ static void lora_event_handler(lorawan_event_t event)
     }
 }
 
-#endif //DEVICE_SPI
-
-#else
-int main (void)
-{
-    return 0;
-}
-#endif //MBED_CONF_APP_LORAWAN_ENABLED
 // EOF

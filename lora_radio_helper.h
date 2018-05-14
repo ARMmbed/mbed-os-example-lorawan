@@ -20,10 +20,6 @@
 #ifndef APP_LORA_RADIO_HELPER_H_
 #define APP_LORA_RADIO_HELPER_H_
 
-#if MBED_CONF_APP_LORAWAN_ENABLED
-
-#ifdef DEVICE_SPI
-
 #include "SX1272_LoRaRadio.h"
 #include "SX1276_LoRaRadio.h"
 
@@ -75,9 +71,5 @@
 #else
     #error "Unknown LoRa radio specified (SX1272,SX1276 are valid)"
 #endif
-
-#endif //DEVICE_SPI
-
-#endif //MBED_CONF_APP_LORAWAN_ENABLED
 
 #endif /* APP_LORA_RADIO_HELPER_H_ */
