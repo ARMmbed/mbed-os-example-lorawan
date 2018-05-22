@@ -25,20 +25,20 @@ def regions = [
 
 // Supported targets
 def targets = [
-  "K64F"
-  //"MTB_MTS_XDOT",
-  //"MTB_MURATA_ABZ",
-  //"MTS_MDOT_F411RE",
-  //"DISCO_L072CZ_LRWAN1",
-  //"MTB_ADV_WISE_1510"
+  "K64F",
+  "MTB_MTS_XDOT",
+  "MTB_MURATA_ABZ",
+  "MTS_MDOT_F411RE",
+  "DISCO_L072CZ_LRWAN1",
+  "MTB_ADV_WISE_1510"
 ]
 
 // Map toolchains to compilers
 def toolchains = [
-  //ARM: "armcc",
-  GCC_ARM: "arm-none-eabi-gcc"
-  //IAR: "iar_arm",
-  //ARMC6: "arm6"
+  ARM: "armcc",
+  GCC_ARM: "arm-none-eabi-gcc",
+  IAR: "iar_arm",
+  ARMC6: "arm6"
 ]
 
 def stepsForParallel = [:]
