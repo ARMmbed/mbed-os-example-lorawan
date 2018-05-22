@@ -140,18 +140,17 @@ def build_regions(regions) {
         deleteDir()
         dir("mbed-os-example-lorawan") {
           checkout scm
-          //sh "mbed deploy --protocol ssh"
+          execute("mbed deploy --protocol ssh")
           //mbed-os.lib??
-          //Initial sed to get list replacing working
+          //Initial sed to string format for find & replacing
           execute("sed -i 's/\"lora.phy\": 0,/\"lora.phy\": \"0\",/' mbed_app.json")
           //lora.phy 0 build tested above already
           for (int i = 1; i < regions.size(); i++) {
             def curr_region = regions.get(i)
             def prev_region = regions.get(i-1)
-            echo "Current: ${curr_region}, previous: ${prev_region}"
             execute("sed -i 's/\"lora.phy\": ${prev_region},/\"lora.phy\": ${curr_region},/' mbed_app.json")
-            execute("cat mbed_app.json")
-            //sh "mbed compile -t GCC_ARM -m K64F"
+            echo "Building region: ${curr_region}"
+            execute("mbed compile -t GCC_ARM -m K64F")
           }
         }
       }
