@@ -141,7 +141,17 @@ def build_regions(regions) {
         dir("mbed-os-example-lorawan") {
           checkout scm
           execute("mbed deploy --protocol ssh")
-          //mbed-os.lib??
+
+          if (env.MBED_OS_REVISION != '') {
+            dir("mbed-os") {
+              if (env.MBED_OS_REVISION.matches('pull/\\d+/head')) {
+                execute("git fetch origin ${env.MBED_OS_REVISION}:_PR_")
+                execute("git checkout _PR_")
+              } else {
+                execute("git checkout ${env.MBED_OS_REVISION}")
+              }
+            }
+          }
           //Initial sed to string format for find & replacing
           execute("sed -i 's/\"lora.phy\": 0,/\"lora.phy\": \"0\",/' mbed_app.json")
           //lora.phy 0 build tested above already
