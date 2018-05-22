@@ -160,7 +160,7 @@ def buildStep(target, compilerLabel, toolchain) {
   }
 }
 
-def build_regions(regions)
+def build_regions(regions) {
   return {
     stage ("region_builder_K64F_GCC_ARM") {
       node ("arm-none-eabi-gcc") {
