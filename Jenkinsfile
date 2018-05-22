@@ -1,5 +1,6 @@
 properties ([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [
-  [$class: 'StringParameterDefinition', name: 'mbed_os_revision', defaultValue: '', description: 'Revision of mbed-os to build. To access mbed-os PR use format "pull/PR number/head"']
+  [$class: 'StringParameterDefinition', name: 'mbed_os_revision', defaultValue: '', description: 'Revision of mbed-os to build. To access mbed-os PR use format "pull/PR number/head"'],
+  [$class: 'BooleanParameterDefinition', name: 'regions_build_test', defaultValue: true, description: 'Test build all available regions']
   ]]])
 
 if (env.MBED_OS_REVISION == null) {
@@ -15,22 +16,29 @@ if (env.MBED_OS_REVISION == '') {
   }
 }
 
+// All available regions
+def regions = [
+  "\"0\"", "\"1\"", "\"2\"", "\"3\"", "\"4\"", "\"5\"", "\"6\"", "\"7\"", "\"8\"", "\"9\"",
+  "\"EU868\"", "\"AS923\"", "\"AU915\"", "\"LCN470\"", "\"CN779\"", "\"EU433\"",
+  "\"IN865\"", "\"KR920\"", "\"US915\"", "\"US915_HYBRID\""
+]
+
 // Supported targets
 def targets = [
-  "K64F",
-  "MTB_MTS_XDOT",
-  "MTB_MURATA_ABZ",
-  "MTS_MDOT_F411RE",
-  "DISCO_L072CZ_LRWAN1",
-  "MTB_ADV_WISE_1510"
+  "K64F"
+  //"MTB_MTS_XDOT",
+  //"MTB_MURATA_ABZ",
+  //"MTS_MDOT_F411RE",
+  //"DISCO_L072CZ_LRWAN1",
+  //"MTB_ADV_WISE_1510"
 ]
 
 // Map toolchains to compilers
 def toolchains = [
-  ARM: "armcc",
-  GCC_ARM: "arm-none-eabi-gcc",
-  IAR: "iar_arm",
-  ARMC6: "arm6"
+  //ARM: "armcc",
+  GCC_ARM: "arm-none-eabi-gcc"
+  //IAR: "iar_arm",
+  //ARMC6: "arm6"
 ]
 
 def stepsForParallel = [:]
@@ -56,8 +64,15 @@ for (int i = 0; i < targets.size(); i++) {
   }
 }
 
+def stepsForRegional = [:]
+
+if (params.regions_build_test == true) {
+  stepsForRegional["REGION BUILDER"] = build_regions(regions)
+}
+
 timestamps {
   parallel stepsForParallel
+  parallel stepsForRegional
 }
 
 def buildStep(target, compilerLabel, toolchain) {
@@ -140,6 +155,32 @@ def buildStep(target, compilerLabel, toolchain) {
         stash name: "${target}_${toolchain}", includes: '**/mbed-os-example-lorawan.bin'
         archive '**/mbed-os-example-lorawan.bin'
         step([$class: 'WsCleanup'])
+      }
+    }
+  }
+}
+
+def build_regions(regions)
+  return {
+    stage ("region_builder_K64F_GCC_ARM") {
+      node ("arm-none-eabi-gcc") {
+        deleteDir()
+        dir("mbed-os-example-lorawan") {
+          checkout scm
+          //sh "mbed deploy --protocol ssh"
+          //mbed-os.lib??
+          //Initial sed to get list replacing working
+          sh "sed -i 's/\"lora.phy\": 0,/\"lora.phy\": \"0\",/' mbed_app.json"
+          //build 0 EU tested above already
+          for (int i = 1; i < regions.size(); i++) {
+            def curr_region = regions.get(i)
+            def prev_region = regions.get(i-1)
+            echo "Current: ${curr_region}, previous: ${prev_region}"
+            sh "sed -i 's/\"lora.phy\": ${prev_region},/\"lora.phy\": ${curr_region},/' mbed_app.json"
+            sh "cat mbed_app.json"
+            //sh "mbed compile -t GCC_ARM -m K64F"
+          }
+        }
       }
     }
   }
