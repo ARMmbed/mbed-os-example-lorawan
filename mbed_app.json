@@ -149,7 +149,7 @@
             "lora-tcxo":            "NC"
         },
 
-        "LTEK_FF1705": {
+        "FF1705_L151CC": {
             "lora-radio":           "SX1272",
             "lora-spi-mosi":        "LORA_MOSI",
             "lora-spi-miso":        "LORA_MISO",
