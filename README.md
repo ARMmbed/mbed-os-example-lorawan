@@ -147,7 +147,6 @@ To enable Mbed trace, add to your `mbed_app.json` the following fields:
 ```json
     "target_overrides": {
         "*": {
-            "target.features_add": ["COMMON_PAL"],
             "mbed-trace.enable": true
             }
      }

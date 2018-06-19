@@ -20,8 +20,6 @@
 
 /**
  * Helper function for the application to setup Mbed trace.
- * It Wouldn't do anything if the FEATURE_COMMON_PAL is not added
- * or if the trace is disabled using mbed_app.json
  */
 void setup_trace();
 
