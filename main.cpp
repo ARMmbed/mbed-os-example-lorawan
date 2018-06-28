@@ -145,7 +145,6 @@ int main (void)
     return 0;
 }
 
-
 /**
  * Sends a message to the Network Server
  */
@@ -174,6 +173,13 @@ static void send_message()
     if (retcode < 0) {
         retcode == LORAWAN_STATUS_WOULD_BLOCK ? printf("send - WOULD BLOCK\r\n")
                 : printf("\r\n send() - Error code %d \r\n", retcode);
+
+        if (retcode == LORAWAN_STATUS_WOULD_BLOCK) {
+            //retry in 3 seconds
+            if (MBED_CONF_LORA_DUTY_CYCLE_ON) {
+                ev_queue.call_in(3000, send_message);
+            }
+        }
         return;
     }
 
@@ -252,6 +258,12 @@ static void lora_event_handler(lorawan_event_t event)
             break;
         case JOIN_FAILURE:
             printf("\r\n OTAA Failed - Check Keys \r\n");
+            break;
+        case UPLINK_REQUIRED:
+            printf("\r\n Uplink required by NS \r\n");
+            if (MBED_CONF_LORA_DUTY_CYCLE_ON) {
+                send_message();
+            }
             break;
         default:
             MBED_ASSERT("Unknown Event");
