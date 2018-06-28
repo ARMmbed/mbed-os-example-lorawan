@@ -20,53 +20,53 @@
  * stack. The library could be made unavailable by removing FEATURE_COMMON_PAL
  * from the mbed_app.json to save RAM.
  */
-#if defined(FEATURE_COMMON_PAL)
 
-    #include "platform/PlatformMutex.h"
-    #include "mbed_trace.h"
+#include "mbed_trace.h"
 
-    /**
-     * Local mutex object for synchronization
-     */
-    static PlatformMutex mutex;
+#ifdef FEA_TRACE_SUPPORT
+#include "platform/PlatformMutex.h"
 
-    static void serial_lock();
-    static void serial_unlock();
+/**
+ * Local mutex object for synchronization
+ */
+static PlatformMutex mutex;
 
-    /**
-     * Sets up trace for the application
-     * Wouldn't do anything if the FEATURE_COMMON_PAL is not added
-     * or if the trace is disabled using mbed_app.json
-     */
-    void setup_trace()
-    {
-        // setting up Mbed trace.
-        mbed_trace_mutex_wait_function_set(serial_lock);
-        mbed_trace_mutex_release_function_set(serial_unlock);
-        mbed_trace_init();
-    }
+static void serial_lock();
+static void serial_unlock();
 
-    /**
-     * Lock provided for serial printing used by trace library
-     */
-    static void serial_lock()
-    {
-        mutex.lock();
-    }
+/**
+ * Sets up trace for the application
+ * Wouldn't do anything if the FEATURE_COMMON_PAL is not added
+ * or if the trace is disabled using mbed_app.json
+ */
+void setup_trace()
+{
+    // setting up Mbed trace.
+    mbed_trace_mutex_wait_function_set(serial_lock);
+    mbed_trace_mutex_release_function_set(serial_unlock);
+    mbed_trace_init();
+}
 
-    /**
-     * Releasing lock provided for serial printing used by trace library
-     */
-    static void serial_unlock()
-    {
-        mutex.unlock();
-    }
+/**
+ * Lock provided for serial printing used by trace library
+ */
+static void serial_lock()
+{
+    mutex.lock();
+}
 
+/**
+ * Releasing lock provided for serial printing used by trace library
+ */
+static void serial_unlock()
+{
+    mutex.unlock();
+}
 #else
+void setup_trace()
+{
 
-    void setup_trace()
-    {
-    }
-
+}
 #endif
+
 
