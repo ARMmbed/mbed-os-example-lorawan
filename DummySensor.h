@@ -24,11 +24,11 @@
 class DS1820
 {
 public:
-    DS1820(uint32_t) { value = 1.0; };
+    DS1820(uint32_t) { value = 1.0f; };
     bool begin() { return true; };
     void startConversion() {};
     float read() {
-        value += 1.1;
+        value += 1.1f;
         return value;
     }
 
