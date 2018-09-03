@@ -3,6 +3,8 @@ properties ([[$class: 'ParametersDefinitionProperty', parameterDefinitions: [
   [$class: 'BooleanParameterDefinition', name: 'regions_build_test', defaultValue: true, description: 'Test build all available regions']
   ]]])
 
+library 'mbed-lib'
+
 if (env.MBED_OS_REVISION == null) {
   echo 'First run in this branch, using default parameter values'
   env.MBED_OS_REVISION = ''
@@ -30,27 +32,19 @@ def targets = [
   "MTB_MURATA_ABZ",
   "MTS_MDOT_F411RE",
   "DISCO_L072CZ_LRWAN1",
-  "MTB_ADV_WISE_1510"
+  "MTB_ADV_WISE_1510",
+  "MTB_RAK811"
 ]
 
 // Map toolchains to compilers
 def toolchains = [
   ARM: "armcc",
   GCC_ARM: "arm-none-eabi-gcc",
-  IAR: "iar_arm",
-  ARMC6: "arm6"
+  IAR: "iar_arm"
+  //ARMC6: "arm6"
 ]
 
 def stepsForParallel = [:]
-
-// Run correct command based on OS used
-def execute(cmd) {
-  if(isUnix()) {
-    sh "${cmd}"
-  } else {
-    bat "${cmd}"
-  }
-}
 
 // Jenkins pipeline does not support map.each, we need to use oldschool for loop
 for (int i = 0; i < targets.size(); i++) {
@@ -64,6 +58,9 @@ for (int i = 0; i < targets.size(); i++) {
         continue
       }
       if (target == "DISCO_L072CZ_LRWAN1" && toolchain == "GCC_ARM") {
+        continue
+      }
+      if (target == "MTB_RAK811" && toolchain == "GCC_ARM") {
         continue
       }
 
@@ -123,6 +120,14 @@ def buildStep(target, compilerLabel, toolchain) {
             execute("sed -i 's/define symbol __size_heap__   = 0x800;/define symbol __size_heap__   = 0x1800;/' \
                     mbed-os/targets/TARGET_STM/TARGET_STM32L1/TARGET_MTB_MTS_XDOT/device/TOOLCHAIN_IAR/stm32l152xc.icf")
           }
+
+          if ("${target}" == "MTB_RAK811") {
+            execute("sed -i 's/#define RCC_HSICALIBRATION_DEFAULT       (0x10U)/#define RCC_HSICALIBRATION_DEFAULT       (0x11U)/' \
+                    mbed-os/targets/TARGET_STM/TARGET_STM32L1/device/stm32l1xx_hal_rcc.h")
+            execute("sed -i 's/define symbol __size_heap__   = 0x800;/define symbol __size_heap__   = 0x1800;/' \
+                    mbed-os/targets/TARGET_STM/TARGET_STM32L1/TARGET_MTB_RAK811/device/TOOLCHAIN_IAR/stm32l152xba.icf")
+          }
+
           execute("mbed compile --build out/${target}_${toolchain}/ -m ${target} -t ${toolchain} -c")
         }
         stash name: "${target}_${toolchain}", includes: '**/mbed-os-example-lorawan.bin'
