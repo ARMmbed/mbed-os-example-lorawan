@@ -34,7 +34,10 @@
 // These are only reference configurations for this LoRa example application.
 // Other LoRa applications might need different configurations.
 #define MBEDTLS_AES_FEWER_TABLES
-#undef MBEDTLS_GCM_C
 
+#undef MBEDTLS_GCM_C
+#undef MBEDTLS_CHACHA20_C
+#undef MBEDTLS_CHACHAPOLY_C
+#undef MBEDTLS_POLY1305_C
 
 #endif /* MBEDTLS_LORA_CONFIG_H */
