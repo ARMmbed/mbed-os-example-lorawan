@@ -40,8 +40,8 @@ def targets = [
 def toolchains = [
   ARM: "armcc",
   GCC_ARM: "arm-none-eabi-gcc",
-  IAR: "iar_arm"
-  //ARMC6: "arm6"
+  IAR: "iar_arm",
+  ARMC6: "arm6"
 ]
 
 def stepsForParallel = [:]
