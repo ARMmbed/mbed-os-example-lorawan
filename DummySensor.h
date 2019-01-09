@@ -21,13 +21,19 @@
 /*
  * A dummy sensor for Mbed LoRa Test Application
  */
-class DS1820
-{
+class DS1820 {
 public:
-    DS1820(uint32_t) { value = 1.0f; };
-    bool begin() { return true; };
+    DS1820(uint32_t)
+    {
+        value = 1.0f;
+    };
+    bool begin()
+    {
+        return true;
+    };
     void startConversion() {};
-    float read() {
+    float read()
+    {
         value += 1.1f;
         return value;
     }

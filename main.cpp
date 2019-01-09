@@ -67,7 +67,7 @@ DS1820  ds1820(PC_9);
 * providing an event queue to the stack that will be used for ISR deferment as
 * well as application information event queuing.
 */
-static EventQueue ev_queue(MAX_NUMBER_OF_EVENTS * EVENTS_EVENT_SIZE);
+static EventQueue ev_queue(MAX_NUMBER_OF_EVENTS *EVENTS_EVENT_SIZE);
 
 /**
  * Event handler.
@@ -78,7 +78,7 @@ static EventQueue ev_queue(MAX_NUMBER_OF_EVENTS * EVENTS_EVENT_SIZE);
 static void lora_event_handler(lorawan_event_t event);
 
 /**
- * Constructing Mbed LoRaWANInterface and passing it down the radio object.
+ * Constructing Mbed LoRaWANInterface and passing it the radio object from lora_radio_helper.
  */
 static LoRaWANInterface lorawan(radio);
 
@@ -90,7 +90,7 @@ static lorawan_app_callbacks_t callbacks;
 /**
  * Entry point for application
  */
-int main (void)
+int main(void)
 {
     // setup tracing
     setup_trace();
@@ -112,7 +112,7 @@ int main (void)
 
     // Set number of retries in case of CONFIRMED messages
     if (lorawan.set_confirmed_msg_retries(CONFIRMED_MSG_RETRY_COUNTER)
-                                          != LORAWAN_STATUS_OK) {
+            != LORAWAN_STATUS_OK) {
         printf("\r\n set_confirmed_msg_retries failed! \r\n\r\n");
         return -1;
     }
@@ -131,7 +131,7 @@ int main (void)
     retcode = lorawan.connect();
 
     if (retcode == LORAWAN_STATUS_OK ||
-        retcode == LORAWAN_STATUS_CONNECT_IN_PROGRESS) {
+            retcode == LORAWAN_STATUS_CONNECT_IN_PROGRESS) {
     } else {
         printf("\r\n Connection error, code = %d \r\n", retcode);
         return -1;
@@ -164,15 +164,15 @@ static void send_message()
         return;
     }
 
-    packet_len = sprintf((char*) tx_buffer, "Dummy Sensor Value is %3.1f",
-                    sensor_value);
+    packet_len = sprintf((char *) tx_buffer, "Dummy Sensor Value is %3.1f",
+                         sensor_value);
 
     retcode = lorawan.send(MBED_CONF_LORA_APP_PORT, tx_buffer, packet_len,
                            MSG_CONFIRMED_FLAG);
 
     if (retcode < 0) {
         retcode == LORAWAN_STATUS_WOULD_BLOCK ? printf("send - WOULD BLOCK\r\n")
-                : printf("\r\n send() - Error code %d \r\n", retcode);
+        : printf("\r\n send() - Error code %d \r\n", retcode);
 
         if (retcode == LORAWAN_STATUS_WOULD_BLOCK) {
             //retry in 3 seconds
@@ -195,7 +195,7 @@ static void receive_message()
     int16_t retcode;
     retcode = lorawan.receive(MBED_CONF_LORA_APP_PORT, rx_buffer,
                               sizeof(rx_buffer),
-                              MSG_CONFIRMED_FLAG|MSG_UNCONFIRMED_FLAG);
+                              MSG_CONFIRMED_FLAG | MSG_UNCONFIRMED_FLAG);
 
     if (retcode < 0) {
         printf("\r\n receive() - Error code %d \r\n", retcode);
