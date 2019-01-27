@@ -4,8 +4,8 @@
             "help": "Which radio to use (options: SX1272,SX1276)",
             "value": "SX1276"
         },
+        
         "main_stack_size":     { "value": 4096 },
-
         "lora-spi-mosi":       { "value": "NC" },
         "lora-spi-miso":       { "value": "NC" },
         "lora-spi-sclk":       { "value": "NC" },
@@ -30,12 +30,17 @@
             "platform.stdio-convert-newlines": true,
             "platform.stdio-baud-rate": 115200,
             "platform.default-serial-baud-rate": 115200,
+            "lora.version": 1,
             "lora.over-the-air-activation": true,
             "lora.duty-cycle-on": true,
             "lora.phy": "EU868",
-            "lora.device-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
-            "lora.application-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
-            "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
+            "mbed-trace.enable": true,
+            "lora.device-eui": "{ 0x01, 0x23, 0x5C, 0x68, 0x07, 0x31, 0xCD, 0x38 }",
+            "lora.application-eui": "{ 0x70, 0xB3, 0xD5, 0x7E, 0xD0, 0x00, 0x00, 0x00 }",
+            "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
+            "lora.appskey": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
+            "lora.nwkskey": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
+            "lora.device-address": "0x00000000"
         },
 
         "K64F": {
@@ -235,7 +240,43 @@
             "lora-ant-switch":     "NC",
             "lora-pwr-amp-ctl":    "NC",
             "lora-tcxo":           "RF_TCXO_EN"
+        },
+
+        "SAML21J18A": {
+            "lora-radio":          "SX1276",
+            "lora-spi-mosi":       "PA06",
+            "lora-spi-miso":       "PA04",
+            "lora-spi-sclk":       "PA07",
+            "lora-cs":             "PA05",
+            "lora-reset":          "PB05",
+            "lora-dio0":           "PB06",
+            "lora-dio1":           "PB07",
+            "lora-dio2":           "PA12",
+            "lora-dio3":           "PA13",
+            "lora-dio4":           "PB04",
+            "lora-dio5":           "PA02",
+            "lora-rf-switch-ctl1": "NC",
+            "lora-rf-switch-ctl2": "NC",
+            "lora-txctl":          "NC",
+            "lora-rxctl":          "NC",
+            "lora-ant-switch":     "NC",
+            "lora-pwr-amp-ctl":    "NC",
+            "lora-tcxo":           "PA03",
+            "lora.network-key":      "\"SLOT_00_0\"",
+            "lora.application-key":  "\"SLOT_00_1\"",
+            "lora.appskey":          "\"SLOT_02_0\"",
+            "lora.nwkskey":          "\"SLOT_05_0\"",
+            "lora.snwksintkey":      "\"SLOT_04_0\"",
+            "lora.nwksenckey":       "\"SLOT_03_0\"",
+            "lora.jsintkey":         "\"SLOT_06_0\"",
+            "lora.jsenckey":         "\"SLOT_07_0\"",
+            "cryptoauthlib.i2c_sda": "PA08",
+            "cryptoauthlib.i2c_scl": "PA09",
+            "target.macros_add":     ["DO_NOT_TEST_CERT",
+                                      "MBEDTLS_AES_ALT=1",
+                                      "MBEDTLS_CMAC_ALT=1"]
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
 }
+
