@@ -25,6 +25,14 @@
 #include "trace_helper.h"
 #include "lora_radio_helper.h"
 
+// For ATECC608 Secure element
+#include "cryptoauthlib.h"
+#include "atca_devtypes.h"
+
+static ATCAIfaceCfg *actaCfg;
+static ATCA_STATUS set_test_config(ATCADeviceType deviceType);
+static void select_device(ATCADeviceType device_type);
+
 using namespace events;
 
 // Max payload size can be LORAMAC_PHY_MAXPAYLOAD.
@@ -92,6 +100,10 @@ static lorawan_app_callbacks_t callbacks;
  */
 int main(void)
 {
+    // Setup secure element
+    select_device(ATECC608A);
+    atcab_init(actaCfg);
+
     // setup tracing
     setup_trace();
 
@@ -141,6 +153,9 @@ int main(void)
 
     // make your event queue dispatching events forever
     ev_queue.dispatch_forever();
+
+    // release secure element resource
+    atcab_release();
 
     return 0;
 }
@@ -268,6 +283,55 @@ static void lora_event_handler(lorawan_event_t event)
         default:
             MBED_ASSERT("Unknown Event");
     }
+}
+
+static void select_device(ATCADeviceType device_type)
+{
+    ATCA_STATUS status;
+
+    status = set_test_config(device_type);
+
+    if (status == ATCA_SUCCESS)
+    {
+        printf("Device Selected.\r\n");
+    }
+    else
+    {
+        printf("IFace Cfg are NOT available\r\n");
+    }
+}
+
+static ATCA_STATUS set_test_config(ATCADeviceType deviceType)
+{
+    switch (deviceType)
+    {
+
+    case ATECC608A:
+#if defined(ATCA_HAL_I2C)
+        actaCfg = &cfg_ateccx08a_i2c_default;
+        actaCfg->devtype = deviceType;
+#elif defined(ATCA_HAL_SWI)
+        actaCfg = &cfg_ateccx08a_swi_default;
+        actaCfg->devtype = deviceType;
+#elif defined(ATCA_HAL_KIT_HID)
+        actaCfg = &cfg_ateccx08a_kithid_default;
+        actaCfg->devtype = deviceType;
+#elif defined(ATCA_HAL_KIT_CDC)
+        actaCfg = &cfg_ateccx08a_kitcdc_default;
+        actaCfg->devtype = deviceType;
+#elif defined(ATCA_HAL_CUSTOM)
+        actaCfg = &g_cfg_atecc608a_custom;
+#else
+#error "HAL interface is not selected";
+#endif
+        break;
+
+    default:
+        //device type wasn't found, return with error
+        return ATCA_GEN_FAIL;
+    }
+
+    return ATCA_SUCCESS;
 }
 
 // EOF
