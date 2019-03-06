@@ -36,12 +36,11 @@ def targets = [
   "MTB_RAK811"
 ]
 
-// Map toolchains to compilers
+// Supported toolchains
 def toolchains = [
-  ARM: "armcc",
-  GCC_ARM: "arm-none-eabi-gcc",
-  IAR: "iar_arm",
-  ARMC6: "arm6"
+  "ARM",
+  "GCC_ARM",
+  "IAR"
 ]
 
 def stepsForParallel = [:]
@@ -50,8 +49,7 @@ def stepsForParallel = [:]
 for (int i = 0; i < targets.size(); i++) {
   for(int j = 0; j < toolchains.size(); j++) {
       def target = targets.get(i)
-      def toolchain = toolchains.keySet().asList().get(j)
-      def compilerLabel = toolchains.get(toolchain)
+      def toolchain = toolchains.get(j)
 
       // Skip unwanted combination
       if (target == "MTB_MURATA_ABZ" && toolchain == "GCC_ARM") {
@@ -66,7 +64,7 @@ for (int i = 0; i < targets.size(); i++) {
 
       def stepName = "${target} ${toolchain}"
 
-      stepsForParallel[stepName] = buildStep(target, compilerLabel, toolchain)
+      stepsForParallel[stepName] = buildStep(target, toolchain)
   }
 }
 
@@ -81,10 +79,10 @@ timestamps {
   parallel stepsForRegional
 }
 
-def buildStep(target, compilerLabel, toolchain) {
+def buildStep(target, toolchain) {
   return {
-    stage ("${target}_${compilerLabel}") {
-      node ("${compilerLabel}") {
+    stage ("${target}_${toolchain}") {
+      node ("${toolchain}") {
         deleteDir()
         dir("mbed-os-example-lorawan") {
           checkout scm
@@ -141,7 +139,7 @@ def buildStep(target, compilerLabel, toolchain) {
 def build_regions(regions) {
   return {
     stage ("region_builder_K64F_GCC_ARM") {
-      node ("arm-none-eabi-gcc") {
+      node ("GCC_ARM") {
         deleteDir()
         dir("mbed-os-example-lorawan") {
           checkout scm
