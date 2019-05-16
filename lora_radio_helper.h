@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-#include "lorawan/LoRaRadio.h"
-
 #ifndef APP_LORA_RADIO_HELPER_H_
 #define APP_LORA_RADIO_HELPER_H_
+
+#include "lorawan/LoRaRadio.h"
 
 #include "SX1272_LoRaRadio.h"
 #include "SX1276_LoRaRadio.h"
