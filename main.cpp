@@ -53,12 +53,12 @@ uint8_t rx_buffer[30];
 /**
  * Dummy pin for dummy sensor
  */
-#define PC_9                            0
+#define PA_0                            0
 
 /**
  * Dummy sensor class object
  */
-DS1820  ds1820(PC_9);
+DS1820  ds1820(PA_0);
 
 /**
 * This event queue is the global event queue for both the
