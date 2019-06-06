@@ -235,6 +235,27 @@
             "lora-ant-switch":     "NC",
             "lora-pwr-amp-ctl":    "NC",
             "lora-tcxo":           "RF_TCXO_EN"
+        },
+        "MOTE_L152RC":{
+            "lora-radio":           "SX1272",
+            "lora-spi-mosi":        "PB_15",
+            "lora-spi-miso":        "PB_14",
+            "lora-spi-sclk":        "PB_13",
+            "lora-cs":              "PB_12",
+            "lora-reset":           "PC_2",
+            "lora-dio0":            "PC_6",
+            "lora-dio1":            "PC_10",
+            "lora-dio2":            "PC_11",
+            "lora-dio3":            "PC_8",
+            "lora-dio4":            "PC_9",
+            "lora-dio5":            "NC",
+            "lora-rf-switch-ctl1":  "NC",
+            "lora-rf-switch-ctl2":  "NC",
+            "lora-txctl":           "NC",
+            "lora-rxctl":           "NC",
+            "lora-ant-switch":      "NC",
+            "lora-pwr-amp-ctl":     "NC",
+            "lora-tcxo":            "NC"
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
