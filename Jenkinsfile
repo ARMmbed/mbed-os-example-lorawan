@@ -87,13 +87,13 @@ def buildStep(target, toolchain) {
         dir("mbed-os-example-lorawan") {
           checkout scm
 
-          // A few retries due to mbed-cli caching issues
+          // A workaround for mbed-cli caching issues
           try {
-            retry(3) {
-              execute("mbed deploy --protocol ssh")
-            }
+            execute("mbed deploy --protocol ssh")
           } catch (err) {
-              echo "mbed deploy failed"
+              echo "mbed deploy failed - retrying after 10s"
+              sleep(10)
+              execute("mbed deploy --protocol ssh")
           }
 
           // Set mbed-os to revision received as parameter
@@ -152,13 +152,13 @@ def build_regions(regions) {
         dir("mbed-os-example-lorawan") {
           checkout scm
 
-          // A few retries due to mbed-cli caching issues
+          // A workaround for mbed-cli caching issues
           try {
-            retry(3) {
-              execute("mbed deploy --protocol ssh")
-            }
+            execute("mbed deploy --protocol ssh")
           } catch (err) {
-              echo "mbed deploy failed"
+              echo "mbed deploy failed - retrying after 10s"
+              sleep(10)
+              execute("mbed deploy --protocol ssh")
           }
 
           if (env.MBED_OS_REVISION != '') {
