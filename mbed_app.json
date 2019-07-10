@@ -235,6 +235,29 @@
             "lora-ant-switch":     "NC",
             "lora-pwr-amp-ctl":    "NC",
             "lora-tcxo":           "RF_TCXO_EN"
+        },
+
+        "IM880B": {
+            "main_stack_size":      1024,
+            "lora-radio":          "SX1272",
+            "lora-spi-mosi":       "SPI_RF_MOSI",
+            "lora-spi-miso":       "SPI_RF_MISO",
+            "lora-spi-sclk":       "SPI_RF_SCK",
+            "lora-cs":             "SPI_RF_NSS",
+            "lora-reset":          "SPI_RF_RESET",
+            "lora-dio0":           "DIO0",
+            "lora-dio1":           "DIO1",
+            "lora-dio2":           "DIO2",
+            "lora-dio3":           "DIO3",
+            "lora-dio4":           "DIO4",
+            "lora-dio5":           "NC",
+            "lora-rf-switch-ctl1": "NC",
+            "lora-rf-switch-ctl2": "NC",
+            "lora-txctl":          "ANT_CTX_PA",
+            "lora-rxctl":          "ANT_CRX_RX",
+            "lora-ant-switch":     "NC",
+            "lora-pwr-amp-ctl":    "NC",
+            "lora-tcxo":           "NC"
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
