@@ -104,6 +104,7 @@ Here is a nonexhaustive list of boards and modules that we have tested with the 
 - LTEK_FF1705.
 - Advantech Wise 1510.
 - ST B-L072Z-LRWAN1 LoRa®Discovery kit (with muRata radio chip).
+- IMST iM880B.
 
 ## Compiling the application
 
