@@ -152,19 +152,19 @@ static void send_message()
 {
     uint16_t packet_len;
     int16_t retcode;
-    float sensor_value;
+    int32_t sensor_value;
 
     if (ds1820.begin()) {
         ds1820.startConversion();
         sensor_value = ds1820.read();
-        printf("\r\n Dummy Sensor Value = %3.1f \r\n", sensor_value);
+        printf("\r\n Dummy Sensor Value = %d \r\n", sensor_value);
         ds1820.startConversion();
     } else {
         printf("\r\n No sensor found \r\n");
         return;
     }
 
-    packet_len = sprintf((char *) tx_buffer, "Dummy Sensor Value is %3.1f",
+    packet_len = sprintf((char *) tx_buffer, "Dummy Sensor Value is %d",
                          sensor_value);
 
     retcode = lorawan.send(MBED_CONF_LORA_APP_PORT, tx_buffer, packet_len,
