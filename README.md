@@ -97,13 +97,17 @@ However, you can define a timer value in the application, which you can use to p
 
 ## Module support
 
-Here is a nonexhaustive list of boards and modules that we have tested with the Mbed OS LoRaWAN stack.
+Here is a nonexhaustive list of boards and modules that we have tested with the Mbed OS LoRaWAN stack:
 
 - MultiTech mDot.
 - MultiTech xDot.
 - LTEK_FF1705.
 - Advantech Wise 1510.
 - ST B-L072Z-LRWAN1 LoRa®Discovery kit (with muRata radio chip).
+
+Here is a list of boards and modules that have been tested by the community:
+
+- IMST iM880B.
 
 ## Compiling the application
 
