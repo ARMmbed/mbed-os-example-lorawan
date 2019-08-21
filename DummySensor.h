@@ -25,21 +25,21 @@ class DS1820 {
 public:
     DS1820(uint32_t)
     {
-        value = 1.0f;
+        value = 1;
     };
     bool begin()
     {
         return true;
     };
     void startConversion() {};
-    float read()
+    int32_t read()
     {
-        value += 1.1f;
+        value += 2;
         return value;
     }
 
 private:
-    float value;
+    int32_t value;
 };
 
 
