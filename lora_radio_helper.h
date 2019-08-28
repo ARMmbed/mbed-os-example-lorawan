@@ -20,16 +20,12 @@
 
 #include "lorawan/LoRaRadio.h"
 
-#include "SX1272_LoRaRadio.h"
-#include "SX1276_LoRaRadio.h"
-#include "SX126X_LoRaRadio.h"
-
 #define SX1272   0xFF
 #define SX1276   0xEE
 #define SX126X   0xDD
 
 #if (MBED_CONF_APP_LORA_RADIO == SX1272)
-
+#include "SX1272_LoRaRadio.h"
 SX1272_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_SPI_MISO,
                        MBED_CONF_APP_LORA_SPI_SCLK,
@@ -50,7 +46,7 @@ SX1272_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_TCXO);
 
 #elif (MBED_CONF_APP_LORA_RADIO == SX1276)
-
+#include "SX1276_LoRaRadio.h"
 SX1276_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_SPI_MISO,
                        MBED_CONF_APP_LORA_SPI_SCLK,
@@ -71,6 +67,7 @@ SX1276_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_TCXO);
 
 #elif (MBED_CONF_APP_LORA_RADIO == SX126X)
+#include "SX126X_LoRaRadio.h"
 SX126X_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_SPI_MISO,
                        MBED_CONF_APP_LORA_SPI_SCLK,
