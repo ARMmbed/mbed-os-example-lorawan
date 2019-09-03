@@ -1,13 +1,26 @@
 # Example LoRaWAN application for Mbed-OS
 
-This is an example application based on `Mbed-OS` LoRaWAN protocol APIs. The Mbed-OS LoRaWAN stack implementation is compliant with LoRaWAN v1.0.2 specification. 
+This is an example application based on `Mbed-OS` LoRaWAN protocol APIs. The Mbed-OS LoRaWAN stack implementation is compliant with LoRaWAN v1.0.2 specification.  See this [link](https://os.mbed.com/blog/entry/Introducing-LoRaWAN-11-support/) for information on support for other LoRaWAN spec versions. This application can work with any Network Server if you have correct credentials for the said Network Server. 
 
-## Getting started
+## Getting Started
 
-This application can work with any Network Server if you have correct credentials for the said Network Server. 
+### Supported Hardware
+[Mbed Enabled board with an Arduino form factor](https://os.mbed.com/platforms/?q=&Form+Factor=Arduino+Compatible) and one of the following:
+- [SX126X shield](https://os.mbed.com/components/SX126xMB2xAS/)
+- [SX1276 shield](https://os.mbed.com/components/SX1276MB1xAS/)
+- [SX1272 shield](https://os.mbed.com/components/SX1272MB2xAS/) 
 
-### Download the application
+OR
 
+[Mbed Enabled LoRa Module](#module-support)
+
+### Import the example application
+For [Mbed Online Compiler](https://ide.mbed.com/compiler/) users:
+- Select "Import", then search for "mbed-os-example-lorawan" from "Team mbed-os-examples".  Or simply, import this repo by URL.
+
+- NOTE: Do NOT select "Update all libraries to latest revision" as this may cause breakage with a new lib version we have not tested.   
+
+For [mbed-cli](https://github.com/ARMmbed/mbed-cli) users:
 ```sh
 $ mbed import mbed-os-example-lorawan
 $ cd mbed-os-example-lorawan
@@ -19,20 +32,15 @@ $ cd mbed-os-example-lorawan
 $ mbed deploy
 ```
 
-### Selecting radio
+### Example configuration and radio selection
 
-Mbed OS provides inherent support for a variety of modules. If your device is one of the those modules, you may skip this part. The correct radio type and pin set is already provided for the modules in the `target-overrides` field. For more information on supported modules, please refer to the [module support section](#module-support)
+Because of the pin differences between the SX126x and SX127x radios, example application configuration files are provided with the correct pin sets in the `config/` dir of this project. 
 
-If you are using an Mbed Enabled radio shield such as [Mbed SX1276 shield LoRa](https://os.mbed.com/components/SX1276MB1xAS/) or [Mbed SX1272 LoRa shield ](https://os.mbed.com/components/SX1272MB2xAS/) with any Mbed Enabled board, this part is relevant. You can use any Mbed Enabled board that comes with an arduino form factor.
+Please start by selecting the correct example configuration for your radio:  
+- For [Mbed Online Compiler](https://ide.mbed.com/compiler/) users, this can be done by simply replacing the contents of the `mbed_app.json` at the root of the project with the content of the correct example configuration in `config/` dir.
+- For [mbed-cli](https://github.com/ARMmbed/mbed-cli) users, the config file can be specifed on the command line with the `--app-config` option (ie `--app-config config/SX12xx_example_config.json`)
 
-Please select your radio type by modifying the `lora-radio` field in `mbed_app.json` and providing a pin set if it is different from the default. For example:
-
-```json
-"lora-radio": {
-    "help": "Which radio to use (options: SX1272,SX1276)",
-    "value": "SX1272"
-},
-```
+With the correct config file selected, the user can then provide a pin set for their target board in the `NC` fields at the top if it is different from the default targets listed.  If your device is one of the LoRa modules supported by Mbed-OS, the pin set is already provided for the modules in the `target-overrides` field of the config file. For more information on supported modules, please refer to the [module support section](#module-support)
 
 ### Add network credentials
 
@@ -43,7 +51,6 @@ Open the file `mbed_app.json` in the root directory of your application. This fi
 Please add `Device EUI`, `Application EUI` and `Application Key` needed for Over-the-air-activation(OTAA). For example:
 
 ```json
-
 "lora.device-eui": "{ YOUR_DEVICE_EUI }",
 "lora.application-eui": "{ YOUR_APPLICATION_EUI }",
 "lora.application-key": "{ YOUR_APPLICATION_KEY }"
@@ -99,15 +106,15 @@ However, you can define a timer value in the application, which you can use to p
 
 Here is a nonexhaustive list of boards and modules that we have tested with the Mbed OS LoRaWAN stack:
 
-- MultiTech mDot.
-- MultiTech xDot.
-- LTEK_FF1705.
-- Advantech Wise 1510.
-- ST B-L072Z-LRWAN1 LoRa®Discovery kit (with muRata radio chip).
+- MultiTech mDot (SX1272)
+- MultiTech xDot (SX1272)
+- LTEK_FF1705 (SX1272)
+- Advantech Wise 1510 (SX1276)
+- ST B-L072Z-LRWAN1 LoRa®Discovery kit with Murata CMWX1ZZABZ-091 module (SX1276)
 
 Here is a list of boards and modules that have been tested by the community:
 
-- IMST iM880B.
+- IMST iM880B (SX1272)
 
 ## Compiling the application
 

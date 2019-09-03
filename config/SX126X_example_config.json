@@ -1,0 +1,65 @@
+{
+    "config": {
+        "lora-radio": {
+            "help": "Which radio to use (options: SX126X, SX1272, SX1276) -- See config/ dir for example configs",
+            "value": "SX126X"
+        },
+        "main_stack_size":     { "value": 4096 },
+
+        "lora-spi-mosi":       { "value": "NC" },
+        "lora-spi-miso":       { "value": "NC" },
+        "lora-spi-sclk":       { "value": "NC" },
+        "lora-cs":             { "value": "NC" },
+        "lora-reset":          { "value": "NC" },
+        "lora-dio1":           { "value": "NC" },
+        "lora-busy":           { "value": "NC" },
+        "lora-freq-sel":       { "value": "NC" },
+        "lora-dev-sel":        { "value": "NC" },
+        "lora-xtal-sel":       { "value": "NC" }, 
+        "lora-ant-switch":     { "value": "NC" }
+    
+    },
+    "target_overrides": {
+        "*": {
+            "platform.stdio-convert-newlines": true,
+            "platform.stdio-baud-rate": 115200,
+            "platform.default-serial-baud-rate": 115200,
+            "lora.over-the-air-activation": true,
+            "lora.duty-cycle-on": true,
+            "lora.phy": "EU868",
+            "lora.device-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
+            "lora.application-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
+            "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
+        },
+
+        "NUCLEO_L073RZ": {
+            "main_stack_size":     2048,
+            "lora-spi-mosi":       "D11",
+            "lora-spi-miso":       "D12",
+            "lora-spi-sclk":       "D13",
+            "lora-cs":             "D7",
+            "lora-reset":          "A0",
+            "lora-dio1":           "D5",
+            "lora-busy":           "D3",
+            "lora-freq-sel":       "A1",
+            "lora-dev-sel":        "A2",
+            "lora-xtal-sel":       "A3",
+            "lora-ant-switch":     "D8"
+        },
+
+        "K64F": {
+            "lora-spi-mosi":       "D11",
+            "lora-spi-miso":       "D12",
+            "lora-spi-sclk":       "D13",
+            "lora-cs":             "D7",
+            "lora-reset":          "A0",
+            "lora-dio1":           "D5",
+            "lora-busy":           "D3",
+            "lora-freq-sel":       "A1",
+            "lora-dev-sel":        "A2",
+            "lora-xtal-sel":       "A3",
+            "lora-ant-switch":     "D8"
+        }
+    },
+    "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
+}

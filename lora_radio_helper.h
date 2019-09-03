@@ -20,14 +20,12 @@
 
 #include "lorawan/LoRaRadio.h"
 
-#include "SX1272_LoRaRadio.h"
-#include "SX1276_LoRaRadio.h"
-
 #define SX1272   0xFF
 #define SX1276   0xEE
+#define SX126X   0xDD
 
 #if (MBED_CONF_APP_LORA_RADIO == SX1272)
-
+#include "SX1272_LoRaRadio.h"
 SX1272_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_SPI_MISO,
                        MBED_CONF_APP_LORA_SPI_SCLK,
@@ -48,7 +46,7 @@ SX1272_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_TCXO);
 
 #elif (MBED_CONF_APP_LORA_RADIO == SX1276)
-
+#include "SX1276_LoRaRadio.h"
 SX1276_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_SPI_MISO,
                        MBED_CONF_APP_LORA_SPI_SCLK,
@@ -68,8 +66,22 @@ SX1276_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
                        MBED_CONF_APP_LORA_PWR_AMP_CTL,
                        MBED_CONF_APP_LORA_TCXO);
 
+#elif (MBED_CONF_APP_LORA_RADIO == SX126X)
+#include "SX126X_LoRaRadio.h"
+SX126X_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
+                       MBED_CONF_APP_LORA_SPI_MISO,
+                       MBED_CONF_APP_LORA_SPI_SCLK,
+                       MBED_CONF_APP_LORA_CS,
+                       MBED_CONF_APP_LORA_RESET,
+                       MBED_CONF_APP_LORA_DIO1,
+                       MBED_CONF_APP_LORA_BUSY,
+                       MBED_CONF_APP_LORA_FREQ_SEL,
+                       MBED_CONF_APP_LORA_DEV_SEL,
+                       MBED_CONF_APP_LORA_XTAL_SEL,
+                       MBED_CONF_APP_LORA_ANT_SWITCH);
+
 #else
-#error "Unknown LoRa radio specified (SX1272,SX1276 are valid)"
+#error "Unknown LoRa radio specified (SX126X, SX1272, SX1276 are valid)"
 #endif
 
 #endif /* APP_LORA_RADIO_HELPER_H_ */

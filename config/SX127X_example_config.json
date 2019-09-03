@@ -3,8 +3,8 @@
         "lora-radio": {
             "help": "Which radio to use (options: SX126X, SX1272, SX1276) -- See config/ dir for example configs",
             "value": "SX1276"
-        },
-        "main_stack_size":     { "value": 4096 },
+    },
+    "main_stack_size":     { "value": 4096 },
 
         "lora-spi-mosi":       { "value": "NC" },
         "lora-spi-miso":       { "value": "NC" },
@@ -262,4 +262,3 @@
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
 }
-
