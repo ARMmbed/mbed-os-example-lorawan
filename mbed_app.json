@@ -258,6 +258,28 @@
             "lora-ant-switch":     "NC",
             "lora-pwr-amp-ctl":    "NC",
             "lora-tcxo":           "NC"
+        },
+
+        "EP_AGORA": {
+            "target.macros_add":   ["NRFX_GPIOTE_CONFIG_NUM_OF_LOW_POWER_EVENTS=4"],
+            "lora-spi-mosi":       "PIN_NAME_LORA_MOSI",
+            "lora-spi-miso":       "PIN_NAME_LORA_MISO",
+            "lora-spi-sclk":       "PIN_NAME_LORA_SCLK",
+            "lora-cs":             "PIN_NAME_LORA_SSN",
+            "lora-reset":          "PIN_NAME_LORA_RESETN",
+            "lora-dio0":           "PIN_NAME_LORA_DIO0",
+            "lora-dio1":           "PIN_NAME_LORA_DIO1",
+            "lora-dio2":           "PIN_NAME_LORA_DIO2",
+            "lora-dio3":           "PIN_NAME_LORA_DIO3",
+            "lora-dio4":           "NC",
+            "lora-dio5":           "NC",
+            "lora-rf-switch-ctl1": "NC",
+            "lora-rf-switch-ctl2": "NC",
+            "lora-txctl":          "NC",
+            "lora-rxctl":          "NC",
+            "lora-ant-switch":     "NC",
+            "lora-pwr-amp-ctl":    "NC",
+            "lora-tcxo":           "NC"
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]

@@ -115,6 +115,7 @@ Here is a nonexhaustive list of boards and modules that we have tested with the 
 Here is a list of boards and modules that have been tested by the community:
 
 - IMST iM880B (SX1272)
+- Embedded Planet Agora (SX1276)
 
 ## Compiling the application
 
