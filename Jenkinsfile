@@ -82,7 +82,7 @@ timestamps {
 def buildStep(target, toolchain) {
   return {
     stage ("${target}_${toolchain}") {
-      node ("${toolchain}") {
+      node ("all-in-one-build-slave") {
         deleteDir()
         dir("mbed-os-example-lorawan") {
           checkout scm
@@ -147,7 +147,7 @@ def buildStep(target, toolchain) {
 def build_regions(regions) {
   return {
     stage ("region_builder_K64F_GCC_ARM") {
-      node ("GCC_ARM") {
+      node ("all-in-one-build-slave") {
         deleteDir()
         dir("mbed-os-example-lorawan") {
           checkout scm
