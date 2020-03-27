@@ -39,8 +39,7 @@ def targets = [
 // Supported toolchains
 def toolchains = [
   "ARM",
-  "GCC_ARM",
-  "IAR"
+  "GCC_ARM"
 ]
 
 def stepsForParallel = [:]
