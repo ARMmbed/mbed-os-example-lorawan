@@ -28,12 +28,8 @@ def regions = [
 // Supported targets
 def targets = [
   "K64F",
-  "MTB_MTS_XDOT",
-  "MTB_MURATA_ABZ",
   "MTS_MDOT_F411RE",
-  "DISCO_L072CZ_LRWAN1",
-  "MTB_ADV_WISE_1510",
-  "MTB_RAK811"
+  "DISCO_L072CZ_LRWAN1"
 ]
 
 // Supported toolchains
@@ -51,13 +47,7 @@ for (int i = 0; i < targets.size(); i++) {
       def toolchain = toolchains.get(j)
 
       // Skip unwanted combination
-      if (target == "MTB_MURATA_ABZ" && toolchain == "GCC_ARM") {
-        continue
-      }
       if (target == "DISCO_L072CZ_LRWAN1" && toolchain == "GCC_ARM") {
-        continue
-      }
-      if (target == "MTB_RAK811" && toolchain == "GCC_ARM") {
         continue
       }
 
@@ -112,25 +102,6 @@ def buildStep(target, toolchain) {
           if ("${target}" == "DISCO_L072CZ_LRWAN1") {
             execute("sed -i 's/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x10)/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x13)/' \
                     mbed-os/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_rcc.h")
-          }
-
-          if ("${target}" == "MTB_MURATA_ABZ") {
-            execute("sed -i 's/define symbol __size_heap__   = 0x800;/define symbol __size_heap__   = 0x1000;/' \
-                    mbed-os/targets/TARGET_STM/TARGET_STM32L0/TARGET_STM32L0x2xZ/device/TOOLCHAIN_IAR/stm32l082xZ.icf")
-            execute("sed -i 's/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x10)/#define RCC_HSICALIBRATION_DEFAULT       ((uint32_t)0x16)/' \
-                    mbed-os/targets/TARGET_STM/TARGET_STM32L0/device/stm32l0xx_hal_rcc.h")
-          }
-
-          if ("${target}" == "MTB_MTS_XDOT") {
-            execute("sed -i 's/define symbol __size_heap__   = 0x800;/define symbol __size_heap__   = 0x1800;/' \
-                    mbed-os/targets/TARGET_STM/TARGET_STM32L1/TARGET_MTB_MTS_XDOT/device/TOOLCHAIN_IAR/stm32l152xc.icf")
-          }
-
-          if ("${target}" == "MTB_RAK811") {
-            execute("sed -i 's/#define RCC_HSICALIBRATION_DEFAULT       (0x10U)/#define RCC_HSICALIBRATION_DEFAULT       (0x11U)/' \
-                    mbed-os/targets/TARGET_STM/TARGET_STM32L1/device/stm32l1xx_hal_rcc.h")
-            execute("sed -i 's/define symbol __size_heap__   = 0x800;/define symbol __size_heap__   = 0x1800;/' \
-                    mbed-os/targets/TARGET_STM/TARGET_STM32L1/TARGET_MTB_RAK811/device/TOOLCHAIN_IAR/stm32l152xba.icf")
           }
 
           execute("mbed compile --build out/${target}_${toolchain}/ -m ${target} -t ${toolchain} -c")
