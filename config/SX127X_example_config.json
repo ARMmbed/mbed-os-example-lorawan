@@ -35,7 +35,8 @@
             "lora.phy": "EU868",
             "lora.device-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
             "lora.application-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
-            "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
+            "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
+            "target.components_add": ["SX1276"]
         },
 
         "K64F": {
@@ -79,7 +80,8 @@
             "lora-rxctl":          "PA_1",
             "lora-ant-switch":     "NC",
             "lora-pwr-amp-ctl":    "PC_1",
-            "lora-tcxo":           "PA_12"
+            "lora-tcxo":           "PA_12",
+            "target.components_add": ["SX1276"]
         },
 
         "MTB_MURATA_ABZ": {
@@ -102,7 +104,8 @@
             "lora-rxctl":          "PA_1",
             "lora-ant-switch":     "NC",
             "lora-pwr-amp-ctl":    "PC_1",
-            "lora-tcxo":           "PA_12"
+            "lora-tcxo":           "PA_12",
+            "target.components_add": ["SX1276"]
         },
 
         "XDOT_L151CC": {
@@ -124,7 +127,8 @@
             "lora-rxctl":           "NC",
             "lora-ant-switch":      "NC",
             "lora-pwr-amp-ctl":     "NC",
-            "lora-tcxo":            "NC"
+            "lora-tcxo":            "NC",
+            "target.components_add": ["SX1272"]
         },
 
         "MTB_MTS_XDOT": {
@@ -146,7 +150,8 @@
             "lora-rxctl":           "NC",
             "lora-ant-switch":      "NC",
             "lora-pwr-amp-ctl":     "NC",
-            "lora-tcxo":            "NC"
+            "lora-tcxo":            "NC",
+            "target.components_add": ["SX1272"]
         },
 
         "FF1705_L151CC": {
@@ -168,7 +173,8 @@
             "lora-rxctl":           "NC",
             "lora-ant-switch":      "NC",
             "lora-pwr-amp-ctl":     "NC",
-            "lora-tcxo":            "NC"
+            "lora-tcxo":            "NC",
+            "target.components_add": ["SX1272"]
         },
 
         "MTS_MDOT_F411RE": {
@@ -190,7 +196,8 @@
             "lora-rxctl":           "LORA_RXCTL",
             "lora-ant-switch":      "NC",
             "lora-pwr-amp-ctl":     "NC",
-            "lora-tcxo":            "NC"
+            "lora-tcxo":            "NC",
+            "target.components_add": ["SX1272"]
         },
 
         "MTB_ADV_WISE_1510": {
@@ -212,7 +219,8 @@
             "lora-rxctl":           "NC",
             "lora-ant-switch":      "ANT_SWITCH",
             "lora-pwr-amp-ctl":     "NC",
-            "lora-tcxo":            "NC"
+            "lora-tcxo":            "NC",
+            "target.components_add": ["SX1276"]
         },
 
         "MTB_RAK811": {
@@ -234,7 +242,8 @@
             "lora-rxctl":          "ANT_CRX_RX",
             "lora-ant-switch":     "NC",
             "lora-pwr-amp-ctl":    "NC",
-            "lora-tcxo":           "RF_TCXO_EN"
+            "lora-tcxo":           "RF_TCXO_EN",
+            "target.components_add": ["SX1276"]
         },
 
         "IM880B": {
@@ -257,7 +266,8 @@
             "lora-rxctl":          "ANT_CRX_RX",
             "lora-ant-switch":     "NC",
             "lora-pwr-amp-ctl":    "NC",
-            "lora-tcxo":           "NC"
+            "lora-tcxo":           "NC",
+            "target.components_add": ["SX1272"]
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
