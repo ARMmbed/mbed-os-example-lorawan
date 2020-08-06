@@ -1,35 +1,40 @@
+# Copyright (c) 2020 ARM Limited. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 
-# Mbed OS system root path - that probably needs to come from tools
-# TODO: @mbed-os-tools
-set(MBED_OS_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/mbed-os CACHE INTERNAL "")
+# TODO: @mbed-os-tools MBED_ROOT and MBED_CONFIG_PATH should probably come from mbedtools
+set(MBED_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/mbed-os CACHE INTERNAL "")
+set(MBED_CONFIG_PATH ${CMAKE_CURRENT_SOURCE_DIR}/.mbedbuild CACHE INTERNAL "")
+set(APP_TARGET mbed-os-example-lorawan)
 
-# TODO: @mbed-os-tools This needs to come from tools
-# Build system provides "component" list. This property is defined in mbed_app.json
-# to select the shield to use.
-# DISCO_L475VG_IOT01A
-set_property(GLOBAL
-  PROPERTY MBED_OS_TARGET_LABELS
-    SX1276;
-)
+add_subdirectory(${MBED_ROOT})
 
-# Include standard Mbed definitions
-include(${MBED_OS_ROOT}/cmake/app.cmake)
+add_executable(${APP_TARGET})
 
-project(mbed-os-example-lorawan)
+mbed_configure_app_target(${APP_TARGET})
 
-# uncomment below to have a verbose build process
-#set(CMAKE_VERBOSE_MAKEFILE ON)
+mbed_set_mbed_target_linker_script(${APP_TARGET})
 
-# Sources for main application
-target_sources(app
-    PRIVATE
-        main.cpp
-        trace_helper.cpp
-)
+project(${APP_TARGET})
+
+# Provide Mbed OS with the header file it needs to configure Mbed TLS for LoRa
 target_include_directories(mbed-os
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+target_sources(${APP_TARGET}
+    PRIVATE
+        main.cpp
+        trace_helper.cpp
+)
+
+target_link_libraries(${APP_TARGET} mbed-os)
+
+mbed_generate_bin_hex(${APP_TARGET})
+
+option(VERBOSE_BUILD "Have a verbose build process")
+if(VERBOSE_BUILD)
+    set(CMAKE_VERBOSE_MAKEFILE ON)
+endif()
