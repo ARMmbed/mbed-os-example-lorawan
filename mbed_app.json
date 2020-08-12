@@ -32,6 +32,7 @@
             "platform.default-serial-baud-rate": 115200,
             "lora.over-the-air-activation": true,
             "lora.duty-cycle-on": true,
+            "target.components_add": ["SX1272", "SX1276", "SX126X"],
             "lora.phy": "EU868",
             "lora.device-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
             "lora.application-eui": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
