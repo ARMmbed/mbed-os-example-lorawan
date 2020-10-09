@@ -1,4 +1,7 @@
-![](./resources/official_armmbed_example_badge.png)
+# DEPRECATED
+
+This example is no longer supported or maintained.
+
 # Example LoRaWAN application for Mbed-OS
 
 This is an example application based on `Mbed-OS` LoRaWAN protocol APIs. The Mbed-OS LoRaWAN stack implementation is compliant with LoRaWAN v1.0.2 specification.  See this [link](https://os.mbed.com/blog/entry/Introducing-LoRaWAN-11-support/) for information on support for other LoRaWAN spec versions. This application can work with any Network Server if you have correct credentials for the said Network Server. 
