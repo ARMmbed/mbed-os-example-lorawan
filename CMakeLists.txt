@@ -30,7 +30,11 @@ target_sources(${APP_TARGET}
         trace_helper.cpp
 )
 
-target_link_libraries(${APP_TARGET} mbed-os)
+target_link_libraries(${APP_TARGET}
+    mbed-os
+    mbed-os-lorawan
+    mbed-os-mbedtls
+)
 
 mbed_generate_bin_hex(${APP_TARGET})
 
