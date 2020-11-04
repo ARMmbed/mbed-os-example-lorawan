@@ -39,7 +39,7 @@ target_link_libraries(${APP_TARGET}
         mbed-mbedtls
 )
 
-mbed_generate_bin_hex(${APP_TARGET})
+mbed_set_post_build(${APP_TARGET})
 
 option(VERBOSE_BUILD "Have a verbose build process")
 if(VERBOSE_BUILD)
