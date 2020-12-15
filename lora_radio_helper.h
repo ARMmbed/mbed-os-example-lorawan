@@ -20,65 +20,61 @@
 
 #include "lorawan/LoRaRadio.h"
 
-#define SX1272   0xFF
-#define SX1276   0xEE
-#define SX126X   0xDD
-
-#if (MBED_CONF_APP_LORA_RADIO == SX1272)
+#if COMPONENT_SX1272
 #include "SX1272_LoRaRadio.h"
-SX1272_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
-                       MBED_CONF_APP_LORA_SPI_MISO,
-                       MBED_CONF_APP_LORA_SPI_SCLK,
-                       MBED_CONF_APP_LORA_CS,
-                       MBED_CONF_APP_LORA_RESET,
-                       MBED_CONF_APP_LORA_DIO0,
-                       MBED_CONF_APP_LORA_DIO1,
-                       MBED_CONF_APP_LORA_DIO2,
-                       MBED_CONF_APP_LORA_DIO3,
-                       MBED_CONF_APP_LORA_DIO4,
-                       MBED_CONF_APP_LORA_DIO5,
-                       MBED_CONF_APP_LORA_RF_SWITCH_CTL1,
-                       MBED_CONF_APP_LORA_RF_SWITCH_CTL2,
-                       MBED_CONF_APP_LORA_TXCTL,
-                       MBED_CONF_APP_LORA_RXCTL,
-                       MBED_CONF_APP_LORA_ANT_SWITCH,
-                       MBED_CONF_APP_LORA_PWR_AMP_CTL,
-                       MBED_CONF_APP_LORA_TCXO);
+SX1272_LoRaRadio radio(MBED_CONF_SX1272_LORA_DRIVER_SPI_MOSI,
+                       MBED_CONF_SX1272_LORA_DRIVER_SPI_MISO,
+                       MBED_CONF_SX1272_LORA_DRIVER_SPI_SCLK,
+                       MBED_CONF_SX1272_LORA_DRIVER_SPI_CS,
+                       MBED_CONF_SX1272_LORA_DRIVER_RESET,
+                       MBED_CONF_SX1272_LORA_DRIVER_DIO0,
+                       MBED_CONF_SX1272_LORA_DRIVER_DIO1,
+                       MBED_CONF_SX1272_LORA_DRIVER_DIO2,
+                       MBED_CONF_SX1272_LORA_DRIVER_DIO3,
+                       MBED_CONF_SX1272_LORA_DRIVER_DIO4,
+                       MBED_CONF_SX1272_LORA_DRIVER_DIO5,
+                       MBED_CONF_SX1272_LORA_DRIVER_RF_SWITCH_CTL1,
+                       MBED_CONF_SX1272_LORA_DRIVER_RF_SWITCH_CTL2,
+                       MBED_CONF_SX1272_LORA_DRIVER_TXCTL,
+                       MBED_CONF_SX1272_LORA_DRIVER_RXCTL,
+                       MBED_CONF_SX1272_LORA_DRIVER_ANT_SWITCH,
+                       MBED_CONF_SX1272_LORA_DRIVER_PWR_AMP_CTL,
+                       MBED_CONF_SX1272_LORA_DRIVER_TCXO);
 
-#elif (MBED_CONF_APP_LORA_RADIO == SX1276)
+#elif COMPONENT_SX1276
 #include "SX1276_LoRaRadio.h"
-SX1276_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
-                       MBED_CONF_APP_LORA_SPI_MISO,
-                       MBED_CONF_APP_LORA_SPI_SCLK,
-                       MBED_CONF_APP_LORA_CS,
-                       MBED_CONF_APP_LORA_RESET,
-                       MBED_CONF_APP_LORA_DIO0,
-                       MBED_CONF_APP_LORA_DIO1,
-                       MBED_CONF_APP_LORA_DIO2,
-                       MBED_CONF_APP_LORA_DIO3,
-                       MBED_CONF_APP_LORA_DIO4,
-                       MBED_CONF_APP_LORA_DIO5,
-                       MBED_CONF_APP_LORA_RF_SWITCH_CTL1,
-                       MBED_CONF_APP_LORA_RF_SWITCH_CTL2,
-                       MBED_CONF_APP_LORA_TXCTL,
-                       MBED_CONF_APP_LORA_RXCTL,
-                       MBED_CONF_APP_LORA_ANT_SWITCH,
-                       MBED_CONF_APP_LORA_PWR_AMP_CTL,
-                       MBED_CONF_APP_LORA_TCXO);
+SX1276_LoRaRadio radio(MBED_CONF_SX1276_LORA_DRIVER_SPI_MOSI,
+                       MBED_CONF_SX1276_LORA_DRIVER_SPI_MISO,
+                       MBED_CONF_SX1276_LORA_DRIVER_SPI_SCLK,
+                       MBED_CONF_SX1276_LORA_DRIVER_SPI_CS,
+                       MBED_CONF_SX1276_LORA_DRIVER_RESET,
+                       MBED_CONF_SX1276_LORA_DRIVER_DIO0,
+                       MBED_CONF_SX1276_LORA_DRIVER_DIO1,
+                       MBED_CONF_SX1276_LORA_DRIVER_DIO2,
+                       MBED_CONF_SX1276_LORA_DRIVER_DIO3,
+                       MBED_CONF_SX1276_LORA_DRIVER_DIO4,
+                       MBED_CONF_SX1276_LORA_DRIVER_DIO5,
+                       MBED_CONF_SX1276_LORA_DRIVER_RF_SWITCH_CTL1,
+                       MBED_CONF_SX1276_LORA_DRIVER_RF_SWITCH_CTL2,
+                       MBED_CONF_SX1276_LORA_DRIVER_TXCTL,
+                       MBED_CONF_SX1276_LORA_DRIVER_RXCTL,
+                       MBED_CONF_SX1276_LORA_DRIVER_ANT_SWITCH,
+                       MBED_CONF_SX1276_LORA_DRIVER_PWR_AMP_CTL,
+                       MBED_CONF_SX1276_LORA_DRIVER_TCXO);
 
-#elif (MBED_CONF_APP_LORA_RADIO == SX126X)
+#elif COMPONENT_SX126X
 #include "SX126X_LoRaRadio.h"
-SX126X_LoRaRadio radio(MBED_CONF_APP_LORA_SPI_MOSI,
-                       MBED_CONF_APP_LORA_SPI_MISO,
-                       MBED_CONF_APP_LORA_SPI_SCLK,
-                       MBED_CONF_APP_LORA_CS,
-                       MBED_CONF_APP_LORA_RESET,
-                       MBED_CONF_APP_LORA_DIO1,
-                       MBED_CONF_APP_LORA_BUSY,
-                       MBED_CONF_APP_LORA_FREQ_SEL,
-                       MBED_CONF_APP_LORA_DEV_SEL,
-                       MBED_CONF_APP_LORA_XTAL_SEL,
-                       MBED_CONF_APP_LORA_ANT_SWITCH);
+SX126X_LoRaRadio radio(MBED_CONF_SX126X_LORA_DRIVER_SPI_MOSI,
+                       MBED_CONF_SX126X_LORA_DRIVER_SPI_MISO,
+                       MBED_CONF_SX126X_LORA_DRIVER_SPI_SCLK,
+                       MBED_CONF_SX126X_LORA_DRIVER_SPI_CS,
+                       MBED_CONF_SX126X_LORA_DRIVER_RESET,
+                       MBED_CONF_SX126X_LORA_DRIVER_DIO1,
+                       MBED_CONF_SX126X_LORA_DRIVER_BUSY,
+                       MBED_CONF_SX126X_LORA_DRIVER_FREQ_SEL,
+                       MBED_CONF_SX126X_LORA_DRIVER_DEV_SEL,
+                       MBED_CONF_SX126X_LORA_DRIVER_XTAL_SEL,
+                       MBED_CONF_SX126X_LORA_DRIVER_ANT_SWITCH);
 
 #else
 #error "Unknown LoRa radio specified (SX126X, SX1272, SX1276 are valid)"
