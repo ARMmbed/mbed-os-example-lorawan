@@ -79,9 +79,9 @@ matrix:
         - pip install "Jinja2>=2.10.1,<2.11"
         - pip install "intelhex>=1.3,<=2.2.1"
       script:
-        - mbedtools checkout
-        - echo mbedtools build -t GCC_ARM -m ${TARGET_NAME} -b ${PROFILE}
-        - mbedtools build -t GCC_ARM -m ${TARGET_NAME} -b ${PROFILE}
+        - mbed-tools deploy
+        - echo mbed-tools compile -t GCC_ARM -m ${TARGET_NAME} -b ${PROFILE}
+        - mbed-tools compile -t GCC_ARM -m ${TARGET_NAME} -b ${PROFILE}
         - ccache -s
 
     - <<: *cmake-build-test
