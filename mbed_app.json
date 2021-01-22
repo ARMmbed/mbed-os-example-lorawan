@@ -35,6 +35,11 @@
             "main_stack_size":      1024
         },
 
+        "NUCLEO_WL55JC": {
+            "stm32wl-lora-driver.debug_rx": "LED1",
+            "stm32wl-lora-driver.debug_tx": "LED2"
+        },
+
         "MTB_MURATA_ABZ": {
             "main_stack_size":      1024,
             "target.components_add":            ["SX1276"],
