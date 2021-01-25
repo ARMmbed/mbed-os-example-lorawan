@@ -35,7 +35,6 @@ target_link_libraries(${APP_TARGET}
     PRIVATE
         mbed-os
         mbed-lorawan
-        mbed-mbedtls
 )
 
 mbed_set_post_build(${APP_TARGET})
