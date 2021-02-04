@@ -15,8 +15,6 @@ add_executable(${APP_TARGET})
 
 mbed_configure_app_target(${APP_TARGET})
 
-mbed_set_mbed_target_linker_script(${APP_TARGET})
-
 project(${APP_TARGET})
 
 # Provide Mbed OS with the header file it needs to configure Mbed TLS for LoRa
