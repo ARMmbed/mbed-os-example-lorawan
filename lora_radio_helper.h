@@ -76,8 +76,13 @@ SX126X_LoRaRadio radio(MBED_CONF_SX126X_LORA_DRIVER_SPI_MOSI,
                        MBED_CONF_SX126X_LORA_DRIVER_XTAL_SEL,
                        MBED_CONF_SX126X_LORA_DRIVER_ANT_SWITCH);
 
+#elif (TARGET_STM32WL)
+#include "STM32WL_LoRaRadio.h"
+STM32WL_LoRaRadio radio(MBED_CONF_STM32WL_LORA_DRIVER_RF_SWITCH_CTL1,
+                        MBED_CONF_STM32WL_LORA_DRIVER_RF_SWITCH_CTL2,
+                        MBED_CONF_STM32WL_LORA_DRIVER_RF_SWITCH_CTL3);
 #else
-#error "Unknown LoRa radio specified (SX126X, SX1272, SX1276 are valid)"
+#error "Unknown LoRa radio specified (SX126X, SX1272, SX1276, STM32WL are valid)"
 #endif
 
 #endif /* APP_LORA_RADIO_HELPER_H_ */

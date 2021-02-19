@@ -13,6 +13,11 @@ This is an example application based on `Mbed-OS` LoRaWAN protocol APIs. The Mbe
 
 OR
 
+Mbed Enabled LoRa MCU:
+- STM32WL : [NUCLEO_WL55JC](https://os.mbed.com/platforms/ST-Nucleo-WL55JC/)
+
+OR
+
 [Mbed Enabled LoRa Module](#module-support)
 
 ### Import the example application
@@ -112,11 +117,13 @@ Here is a nonexhaustive list of boards and modules that we have tested with the 
 - LTEK_FF1705 (SX1272)
 - Advantech Wise 1510 (SX1276)
 - ST B-L072Z-LRWAN1 LoRa®Discovery kit with Murata CMWX1ZZABZ-091 module (SX1276)
+- ST NUCLEO-WL55JC with sub-GHz SoC (STM32WL)
 
 Here is a list of boards and modules that have been tested by the community:
 
 - IMST iM880B (SX1272)
 - Embedded Planet Agora (SX1276)
+
 
 ## Compiling the application
 
