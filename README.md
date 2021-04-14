@@ -20,33 +20,22 @@ OR
 
 [Mbed Enabled LoRa Module](#module-support)
 
-### Import the example application
-For [Mbed Online Compiler](https://ide.mbed.com/compiler/) users:
-- Select "Import", then search for "mbed-os-example-lorawan" from "Team mbed-os-examples".  Or simply, import this repo by URL.
+### Mbed OS build tools
 
-- NOTE: Do NOT select "Update all libraries to latest revision" as this may cause breakage with a new lib version we have not tested.   
+#### Mbed CLI 2
+Starting with version 6.5, Mbed OS uses Mbed CLI 2. It uses Ninja as a build system, and CMake to generate the build environment and manage the build process in a compiler-independent manner. If you are working with Mbed OS version prior to 6.5 then check the section [Mbed CLI 1](#mbed-cli-1).
+1. [Install Mbed CLI 2](https://os.mbed.com/docs/mbed-os/latest/build-tools/install-or-upgrade.html).
+1. From the command-line, import the example: `mbed-tools import mbed-os-example-lorawan`
+1. Change the current directory to where the project was imported.
 
-For [mbed-cli](https://github.com/ARMmbed/mbed-cli) users:
-```sh
-$ mbed import mbed-os-example-lorawan
-$ cd mbed-os-example-lorawan
+#### Mbed CLI 1
+1. [Install Mbed CLI 1](https://os.mbed.com/docs/mbed-os/latest/quick-start/offline-with-mbed-cli.html).
+1. From the command-line, import the example: `mbed import mbed-os-example-lorawan`
+1. Change the current directory to where the project was imported.
 
-#OR
+### Configuration and radio selection
 
-$ git clone git@github.com:ARMmbed/mbed-os-example-lorawan.git
-$ cd mbed-os-example-lorawan
-$ mbed deploy
-```
-
-### Example configuration and radio selection
-
-Because of the pin differences between the SX126x and SX127x radios, example application configuration files are provided with the correct pin sets in the `config/` dir of this project. 
-
-Please start by selecting the correct example configuration for your radio:  
-- For [Mbed Online Compiler](https://ide.mbed.com/compiler/) users, this can be done by simply replacing the contents of the `mbed_app.json` at the root of the project with the content of the correct example configuration in `config/` dir.
-- For [mbed-cli](https://github.com/ARMmbed/mbed-cli) users, the config file can be specifed on the command line with the `--app-config` option (ie `--app-config config/SX12xx_example_config.json`)
-
-With the correct config file selected, the user can then provide a pin set for their target board in the `NC` fields at the top if it is different from the default targets listed.  If your device is one of the LoRa modules supported by Mbed-OS, the pin set is already provided for the modules in the `target-overrides` field of the config file. For more information on supported modules, please refer to the [module support section](#module-support)
+For LoRa modules supported by Mbed-OS, the pin set is already provided in the `target-overrides` field of the [`mbed_app.json`](./mbed_app.json) file. For more information on supported modules, please refer to the [module support](#module-support) section.
 
 ### Add network credentials
 
@@ -99,12 +88,11 @@ LoRaWAN v1.0.2 specifcation is exclusively duty cycle based. This application co
 
 However, you can define a timer value in the application, which you can use to perform a periodic uplink when the duty cycle is turned off. Such a setup should be used only for testing or with a large enough timer value. For example:
 
-```josn 
+```json
 "target_overrides": {
-	"*": {
-		"lora.duty-cycle-on": false
-		},
-	}
+    "*": {
+        "lora.duty-cycle-on": false
+    }
 }
 ```
 
@@ -124,23 +112,51 @@ Here is a list of boards and modules that have been tested by the community:
 - IMST iM880B (SX1272)
 - Embedded Planet Agora (SX1276)
 
+## Building and running
 
-## Compiling the application
+1. Connect a USB cable between the USB port on the target and the host computer.
+1. Run the following command to build the example project and program the microcontroller flash memory:
 
-Use Mbed CLI commands to generate a binary for the application.
-For example:
+    * Mbed CLI 2
 
-```sh
-$ mbed compile -m YOUR_TARGET -t ARM
-```
+    ```bash
+    $ mbed-tools compile -m <TARGET> -t <TOOLCHAIN> --flash --sterm --baudrate 115200
+    ```
 
-## Running the application
+    * Mbed CLI 1
 
-Drag and drop the application binary from `BUILD/YOUR_TARGET/ARM/mbed-os-example-lora.bin` to your Mbed enabled target hardware, which appears as a USB device on your host machine. 
+    ```bash
+    $ mbed compile -m <TARGET> -t <TOOLCHAIN> --flash --sterm --baudrate 115200
+    ```
 
-Attach a serial console emulator of your choice (for example, PuTTY, Minicom or screen) to your USB device. Set the baudrate to 115200 bit/s, and reset your board by pressing the reset button.
+Your PC may take a few minutes to compile your code.
 
-You should see an output similar to this:
+The binary is located at:
+
+* **Mbed CLI 2** -
+  `./cmake_build/<TARGET>/develop/<TOOLCHAIN>/mbed-os-example-lorawan.bin`
+
+* **Mbed CLI 1** - `./BUILD/<TARGET>/<TOOLCHAIN>/mbed-os-example-lorawan.bin`.
+
+You can manually copy the binary to the target, which gets mounted on the host
+computer through USB, rather than using the `--flash` option.
+
+You can also open a serial terminal separately, rather than using the `--sterm --baudrate 115200`
+option, with the following command:
+
+* Mbed CLI 2
+    ```bash
+    $ mbed-tools sterm --baudrate 115200
+    ```
+
+* Mbed CLI 1
+    ```bash
+    $ mbed sterm --baudrate 115200
+    ```
+
+## Expected output
+
+The serial terminal shows an output similar to:
 
 ```
 Mbed LoRaWANStack initialized 
@@ -168,7 +184,7 @@ To enable Mbed trace, add to your `mbed_app.json` the following fields:
     "target_overrides": {
         "*": {
             "mbed-trace.enable": true
-            }
+        }
      }
 ```
 The trace is disabled by default to save RAM and reduce main stack usage (see chapter Memory optimization).
