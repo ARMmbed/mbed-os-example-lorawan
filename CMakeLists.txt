@@ -13,8 +13,6 @@ add_subdirectory(${MBED_PATH})
 
 add_executable(${APP_TARGET})
 
-mbed_configure_app_target(${APP_TARGET})
-
 project(${APP_TARGET})
 
 # Provide Mbed OS with the header file it needs to configure Mbed TLS for LoRa
@@ -34,6 +32,11 @@ target_link_libraries(${APP_TARGET}
         mbed-os
         mbed-lorawan
 )
+
+# Custom target
+add_library(mbed-k64f-sx126x INTERFACE)
+
+target_link_libraries(mbed-k64f-sx126x INTERFACE mbed-k64f)
 
 mbed_set_post_build(${APP_TARGET})
 
