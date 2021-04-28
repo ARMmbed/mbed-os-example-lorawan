@@ -17,18 +17,18 @@
 
         "K64F": {
             "target.components_add":            ["SX1276"],
-            "sx1276-lora-driver.spi-mosi":       "D11",
-            "sx1276-lora-driver.spi-miso":       "D12",
-            "sx1276-lora-driver.spi-sclk":       "D13",
-            "sx1276-lora-driver.spi-cs":         "D10",
-            "sx1276-lora-driver.reset":          "A0",
-            "sx1276-lora-driver.dio0":           "D2",
-            "sx1276-lora-driver.dio1":           "D3",
-            "sx1276-lora-driver.dio2":           "D4",
-            "sx1276-lora-driver.dio3":           "D5",
-            "sx1276-lora-driver.dio4":           "D8",
-            "sx1276-lora-driver.dio5":           "D9",
-            "sx1276-lora-driver.ant-switch":     "A4"
+            "sx1276-lora-driver.spi-mosi":       "ARDUINO_UNO_D11",
+            "sx1276-lora-driver.spi-miso":       "ARDUINO_UNO_D12",
+            "sx1276-lora-driver.spi-sclk":       "ARDUINO_UNO_D13",
+            "sx1276-lora-driver.spi-cs":         "ARDUINO_UNO_D10",
+            "sx1276-lora-driver.reset":          "ARDUINO_UNO_A0",
+            "sx1276-lora-driver.dio0":           "ARDUINO_UNO_D2",
+            "sx1276-lora-driver.dio1":           "ARDUINO_UNO_D3",
+            "sx1276-lora-driver.dio2":           "ARDUINO_UNO_D4",
+            "sx1276-lora-driver.dio3":           "ARDUINO_UNO_D5",
+            "sx1276-lora-driver.dio4":           "ARDUINO_UNO_D8",
+            "sx1276-lora-driver.dio5":           "ARDUINO_UNO_D9",
+            "sx1276-lora-driver.ant-switch":     "ARDUINO_UNO_A4"
         },
 
         "K64F_SX126X": {
