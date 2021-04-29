@@ -33,17 +33,17 @@
 
         "K64F_SX126X": {
             "target.components_add":            ["SX126X"],
-            "SX126X-lora-driver.spi-mosi":       "D11",
-            "SX126X-lora-driver.spi-miso":       "D12",
-            "SX126X-lora-driver.spi-sclk":       "D13",
-            "SX126X-lora-driver.spi-cs":         "D7",
-            "SX126X-lora-driver.reset":          "A0",
-            "SX126X-lora-driver.dio1":           "D5",
-            "SX126X-lora-driver.busy":           "D3",
-            "SX126X-lora-driver.freq-select":    "A1",
-            "SX126X-lora-driver.device-select":  "A2",
-            "SX126X-lora-driver.crystal-select": "A3",
-            "SX126X-lora-driver.ant-switch":     "D8"
+            "SX126X-lora-driver.spi-mosi":       "ARDUINO_UNO_D11",
+            "SX126X-lora-driver.spi-miso":       "ARDUINO_UNO_D12",
+            "SX126X-lora-driver.spi-sclk":       "ARDUINO_UNO_D13",
+            "SX126X-lora-driver.spi-cs":         "ARDUINO_UNO_D7",
+            "SX126X-lora-driver.reset":          "ARDUINO_UNO_A0",
+            "SX126X-lora-driver.dio1":           "ARDUINO_UNO_D5",
+            "SX126X-lora-driver.busy":           "ARDUINO_UNO_D3",
+            "SX126X-lora-driver.freq-select":    "ARDUINO_UNO_A1",
+            "SX126X-lora-driver.device-select":  "ARDUINO_UNO_A2",
+            "SX126X-lora-driver.crystal-select": "ARDUINO_UNO_A3",
+            "SX126X-lora-driver.ant-switch":     "ARDUINO_UNO_D8"
         },
 
         "DISCO_L072CZ_LRWAN1": {
@@ -199,17 +199,17 @@
         "NUCLEO_L073RZ": {
             "main_stack_size":     2048,
             "target.components_add":            ["SX126X"],
-            "SX126X-lora-driver.spi-mosi":       "D11",
-            "SX126X-lora-driver.spi-miso":       "D12",
-            "SX126X-lora-driver.spi-sclk":       "D13",
-            "SX126X-lora-driver.spi-cs":         "D7",
-            "SX126X-lora-driver.reset":          "A0",
-            "SX126X-lora-driver.dio1":           "D5",
-            "SX126X-lora-driver.busy":           "D3",
-            "SX126X-lora-driver.freq-select":    "A1",
-            "SX126X-lora-driver.device-select":  "A2",
-            "SX126X-lora-driver.crystal-select": "A3",
-            "SX126X-lora-driver.ant-switch":     "D8"
+            "SX126X-lora-driver.spi-mosi":       "ARDUINO_UNO_D11",
+            "SX126X-lora-driver.spi-miso":       "ARDUINO_UNO_D12",
+            "SX126X-lora-driver.spi-sclk":       "ARDUINO_UNO_D13",
+            "SX126X-lora-driver.spi-cs":         "ARDUINO_UNO_D7",
+            "SX126X-lora-driver.reset":          "ARDUINO_UNO_A0",
+            "SX126X-lora-driver.dio1":           "ARDUINO_UNO_D5",
+            "SX126X-lora-driver.busy":           "ARDUINO_UNO_D3",
+            "SX126X-lora-driver.freq-select":    "ARDUINO_UNO_A1",
+            "SX126X-lora-driver.device-select":  "ARDUINO_UNO_A2",
+            "SX126X-lora-driver.crystal-select": "ARDUINO_UNO_A3",
+            "SX126X-lora-driver.ant-switch":     "ARDUINO_UNO_D8"
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
