@@ -1,0 +1,24 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/GCC_ARM/GCC/bin/arm-none-eabi-gcc.exe 
+Build flags: -Wall;-Wextra;-Wno-unused-parameter;-Wno-missing-field-initializers;-fmessage-length=0;-fno-exceptions;-ffunction-sections;-fdata-sections;-funsigned-char;-fomit-frame-pointer;-g3;-mthumb;-mcpu=cortex-m4;-mfpu=fpv4-sp-d16;-mfloat-abi=softfp;
+Id flags:  
+
+The output was:
+1
+c:/gcc_arm/gcc/bin/../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/bin/ld.exe: c:/gcc_arm/gcc/bin/../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libg.a(lib_a-exit.o): in function `exit':
+exit.c:(.text.exit+0x16): undefined reference to `_exit'
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/GCC_ARM/GCC/bin/arm-none-eabi-g++.exe 
+Build flags: -Wall;-Wextra;-Wno-unused-parameter;-Wno-missing-field-initializers;-fmessage-length=0;-fno-exceptions;-ffunction-sections;-fdata-sections;-funsigned-char;-fomit-frame-pointer;-g3;-mthumb;-mcpu=cortex-m4;-mfpu=fpv4-sp-d16;-mfloat-abi=softfp;
+Id flags:  
+
+The output was:
+1
+c:/gcc_arm/gcc/bin/../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/bin/ld.exe: c:/gcc_arm/gcc/bin/../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp\libg.a(lib_a-exit.o): in function `exit':
+exit.c:(.text.exit+0x16): undefined reference to `_exit'
+collect2.exe: error: ld returned 1 exit status
+
+

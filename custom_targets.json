@@ -1,0 +1,10 @@
+{
+"MYTARGET": {
+        "inherits": ["MCU_STM32WB55xx"],
+		"device_has": [ "USTICKER", "LPTICKER", "RTC", "ANALOGIN", "I2C", "I2CSLAVE", "I2C_ASYNCH", "INTERRUPTIN", "PORTIN", "PORTINOUT", "PORTOUT", "PWMOUT",
+            "SERIAL", "SERIAL_FC", "SLEEP", "SPI", "SPISLAVE", "SPI_ASYNCH", "STDIO_MESSAGES", "WATCHDOG", "RESET_REASON", "CRC", "FLASH", "MPU", 
+			"SERIAL_ASYNCH", "TRNG", "USBDEVICE"],
+		"device_name": "STM32WB55RGVx",
+		"supported_form_factors": ["ARDUINO", "MORPHO"]
+	}
+}

@@ -15,7 +15,29 @@
             "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
         },
 
-        "K64F": {
+		"MYTARGET": {
+			"target.device_has_add": ["QSPI"],
+			"target.components_add" : ["QSPIF"],
+			"components_add": ["LR1110"],
+			"drivers.qspi_io0": "PB_9",
+			"drivers.qspi_io1": "PB_8",
+			"drivers.qspi_io2": "PA_7",
+			"drivers.qspi_io3": "PA_6",
+			"drivers.qspi_sck": "PB_10",
+			"drivers.qspi_csn": "PB_11",
+			"lr1110-lora-driver.spi-mosi": "PB_15",
+			"lr1110-lora-driver.spi-miso": "PB_14",
+			"lr1110-lora-driver.spi-sclk": "PB_13",
+			"lr1110-lora-driver.spi-cs": "PB_12",
+            "lr1110-lora-driver.nreset": "PB_0",
+			"lr1110-lora-driver.dio7": "PA_3",
+			"lr1110-lora-driver.dio8": "PA_4",
+			"lr1110-lora-driver.dio9": "PA_5",
+			"lr1110-lora-driver.busy": "PB_1",
+			"lr1110-lora-driver.lnactrlon": "PB_5"
+		},
+        
+		"K64F": {
             "target.components_add":            ["SX1276"],
             "sx1276-lora-driver.spi-mosi":       "D11",
             "sx1276-lora-driver.spi-miso":       "D12",
