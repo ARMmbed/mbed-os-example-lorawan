@@ -1,4 +1,5 @@
 {
+
 "MYTARGET": {
         "inherits": ["MCU_STM32WB55xx"],
 		"device_has": [ "USTICKER", "LPTICKER", "RTC", "ANALOGIN", "I2C", "I2CSLAVE", "I2C_ASYNCH", "INTERRUPTIN", "PORTIN", "PORTINOUT", "PORTOUT", "PWMOUT",
@@ -7,4 +8,5 @@
 		"device_name": "STM32WB55RGVx",
 		"supported_form_factors": ["ARDUINO", "MORPHO"]
 	}
+
 }

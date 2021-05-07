@@ -53,6 +53,21 @@
             "sx1276-lora-driver.ant-switch":     "A4"
         },
 
+        "K64F_SX126X": {
+            "target.components_add":            ["SX126X"],
+            "SX126X-lora-driver.spi-mosi":       "D11",
+            "SX126X-lora-driver.spi-miso":       "D12",
+            "SX126X-lora-driver.spi-sclk":       "D13",
+            "SX126X-lora-driver.spi-cs":         "D7",
+            "SX126X-lora-driver.reset":          "A0",
+            "SX126X-lora-driver.dio1":           "D5",
+            "SX126X-lora-driver.busy":           "D3",
+            "SX126X-lora-driver.freq-select":    "A1",
+            "SX126X-lora-driver.device-select":  "A2",
+            "SX126X-lora-driver.crystal-select": "A3",
+            "SX126X-lora-driver.ant-switch":     "D8"
+        },
+
         "DISCO_L072CZ_LRWAN1": {
             "main_stack_size":      1024
         },
@@ -201,6 +216,22 @@
             "sx1276-lora-driver.dio1":           "PIN_NAME_LORA_DIO1",
             "sx1276-lora-driver.dio2":           "PIN_NAME_LORA_DIO2",
             "sx1276-lora-driver.dio3":           "PIN_NAME_LORA_DIO3"
+        },
+
+        "NUCLEO_L073RZ": {
+            "main_stack_size":     2048,
+            "target.components_add":            ["SX126X"],
+            "SX126X-lora-driver.spi-mosi":       "D11",
+            "SX126X-lora-driver.spi-miso":       "D12",
+            "SX126X-lora-driver.spi-sclk":       "D13",
+            "SX126X-lora-driver.spi-cs":         "D7",
+            "SX126X-lora-driver.reset":          "A0",
+            "SX126X-lora-driver.dio1":           "D5",
+            "SX126X-lora-driver.busy":           "D3",
+            "SX126X-lora-driver.freq-select":    "A1",
+            "SX126X-lora-driver.device-select":  "A2",
+            "SX126X-lora-driver.crystal-select": "A3",
+            "SX126X-lora-driver.ant-switch":     "D8"
         }
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
