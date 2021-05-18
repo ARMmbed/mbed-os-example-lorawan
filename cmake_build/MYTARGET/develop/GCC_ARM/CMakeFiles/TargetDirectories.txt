@@ -778,8 +778,6 @@ C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/dev
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/CMakeFiles/rebuild_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/blockdevice/CMakeFiles/edit_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/blockdevice/CMakeFiles/rebuild_cache.dir
-C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/blockdevice/COMPONENT_QSPIF/CMakeFiles/edit_cache.dir
-C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/blockdevice/COMPONENT_QSPIF/CMakeFiles/rebuild_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/filesystem/CMakeFiles/edit_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/filesystem/CMakeFiles/rebuild_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/filesystem/fat/CMakeFiles/edit_cache.dir

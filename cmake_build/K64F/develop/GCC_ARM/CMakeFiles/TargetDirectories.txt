@@ -1,6 +1,8 @@
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/K64F/develop/GCC_ARM/CMakeFiles/edit_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/K64F/develop/GCC_ARM/CMakeFiles/mbed-os-example-lorawan.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/K64F/develop/GCC_ARM/CMakeFiles/rebuild_cache.dir
+C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/K64F/develop/GCC_ARM/TARGET_MYTARGET/CMakeFiles/edit_cache.dir
+C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/K64F/develop/GCC_ARM/TARGET_MYTARGET/CMakeFiles/rebuild_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/K64F/develop/GCC_ARM/mbed-os/CMakeFiles/edit_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/K64F/develop/GCC_ARM/mbed-os/CMakeFiles/rebuild_cache.dir
 C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/K64F/develop/GCC_ARM/mbed-os/cmsis/CMakeFiles/edit_cache.dir

@@ -26,7 +26,7 @@
 #include "lora_radio_helper.h"
 
 //QSPI header file
-#include "qspi_api.h"
+//#include "qspi_api.h"
 //#include "drivers/QSPI.h"
 
 using namespace events;
@@ -69,12 +69,12 @@ DS1820  ds1820(PC_9);
 /**
  * QSPI object
  */
- qspi_t *obj;
+ /*qspi_t *obj;
  static void flash_mem_qspi();
  const void *send_mem_data ="m";
  void *recv_mem_data;
  size_t *length;
- const qspi_command_t *recv_mem_command, *send_mem_command;
+ const qspi_command_t *recv_mem_command, *send_mem_command;*/
 
 /**
 * This event queue is the global event queue for both the
@@ -109,7 +109,7 @@ static lorawan_app_callbacks_t callbacks;
 int main(void)
 {
     //Call QSPI Flash memory
-	flash_mem_qspi();
+	//flash_mem_qspi();
 	
 	// setup tracing
     setup_trace();
@@ -167,7 +167,7 @@ int main(void)
 /**
  * Communicate with QSPI Flash memory
  */
- static void flash_mem_qspi()
+/* static void flash_mem_qspi()
 {
 	//PinName io0, io1, io2, io3, sclk, ssel;
 	//qspi_init(obj, io0, io1, io2, io3, sclk, ssel,1000, 1);
@@ -175,7 +175,7 @@ int main(void)
 	qspi_write(obj, send_mem_command, send_mem_data, length);
 	qspi_read(obj, recv_mem_command, recv_mem_data, length);
 	qspi_free(obj);
-}
+}*/
 
 /**
  * Sends a message to the Network Server

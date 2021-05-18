@@ -37,8 +37,3 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "C:/GCC_ARM/GCC/bin/arm-none-eabi-objdump.exe")
 endif()
 
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/storage/blockdevice/COMPONENT_QSPIF/cmake_install.cmake")
-endif()
-
