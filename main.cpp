@@ -26,8 +26,8 @@
 #include "lora_radio_helper.h"
 
 //QSPI header file
-//#include "qspi_api.h"
-//#include "drivers/QSPI.h"
+#include "qspi_api.h"
+#include "drivers/QSPI.h"
 
 using namespace events;
 
@@ -69,12 +69,12 @@ DS1820  ds1820(PC_9);
 /**
  * QSPI object
  */
- /*qspi_t *obj;
- static void flash_mem_qspi();
+ qspi_t *obj;
+ //static void flash_mem_qspi();
  const void *send_mem_data ="m";
  void *recv_mem_data;
  size_t *length;
- const qspi_command_t *recv_mem_command, *send_mem_command;*/
+ const qspi_command_t *recv_mem_command, *send_mem_command;
 
 /**
 * This event queue is the global event queue for both the

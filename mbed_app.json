@@ -36,32 +36,43 @@
 			"lr1110-lora-driver.busy": "PB_1",
 			"lr1110-lora-driver.lnactrlon": "PB_5"
 		},
+		"NUCLEO_WB55RG": {
+            "target.device_has_add": ["QSPI"],
+			"target.components_add" : ["QSPIF"],
+			"target.components_add": ["LR1110"],
+			"drivers.qspi_io0": "PB_9",
+			"drivers.qspi_io1": "PB_8",
+			"drivers.qspi_io2": "PA_7",
+			"drivers.qspi_io3": "PA_6",
+			"drivers.qspi_sck": "PB_10",
+			"drivers.qspi_csn": "PB_11",
+			
+			"lr1110-lora-driver.spi-mosi": "PB_15",
+			"lr1110-lora-driver.spi-miso": "PB_14",
+			"lr1110-lora-driver.spi-sclk": "PB_13",
+			"lr1110-lora-driver.spi-cs": "PB_12",
+            "lr1110-lora-driver.nreset": "PB_0",
+			"lr1110-lora-driver.dio7": "PA_3",
+			"lr1110-lora-driver.dio8": "PA_4",
+			"lr1110-lora-driver.dio9": "PA_5",
+			"lr1110-lora-driver.busy": "PB_1",
+			"lr1110-lora-driver.lnactrlon": "PB_5"
+			
+			
+        },
         
 		"K64F": {
             "target.components_add":            ["LR1110"],
-			
-            "sx1276-lora-driver.spi-mosi":       "D11",
-            "sx1276-lora-driver.spi-miso":       "PTD3",
-            "sx1276-lora-driver.spi-sclk":       "D13",
-            "sx1276-lora-driver.spi-cs":         "D10",
-            "sx1276-lora-driver.reset":          "A0",
-            "sx1276-lora-driver.dio0":           "D2",
-            "sx1276-lora-driver.dio1":           "D3",
-            "sx1276-lora-driver.dio2":           "D4",
-            "sx1276-lora-driver.dio3":           "D5",
-            "sx1276-lora-driver.dio4":           "D8",
-            "sx1276-lora-driver.dio5":           "D9",
-            "sx1276-lora-driver.ant-switch":     "A4",
 			"lr1110-lora-driver.spi-mosi":       "D11",
-            "lr1110-lora-driver.spi-miso":       "PTD3",
+            "lr1110-lora-driver.spi-miso":       "D12",
             "lr1110-lora-driver.spi-sclk":       "D13",
-            "lr1110-lora-driver.spi-cs":         "D10",
+            "lr1110-lora-driver.spi-cs":         "D7",
             "lr1110-lora-driver.nreset":          "A0",
             "lr1110-lora-driver.dio7":           "D2",
             "lr1110-lora-driver.dio8":           "D3",
             "lr1110-lora-driver.dio9":           "D4",
             "lr1110-lora-driver.busy":           "D5",
-            "lr1110-lora-driver.lnractrlon":           "D8"
+            "lr1110-lora-driver.lnractrlon":      "D8"
         },
 
         "K64F_SX126X": {
