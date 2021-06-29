@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/connectivity/drivers/cellular/QUECTEL
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/connectivity/drivers/cellular/QUECTEL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,26 +39,26 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/BC95/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/BC95/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/BG96/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/BG96/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/EC2X/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/EC2X/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/M26/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/M26/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/UG96/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/UG96/cmake_install.cmake")
 endif()
 

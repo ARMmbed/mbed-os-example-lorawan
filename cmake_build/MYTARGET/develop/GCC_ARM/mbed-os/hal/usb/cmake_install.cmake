@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/hal/usb
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/hal/usb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

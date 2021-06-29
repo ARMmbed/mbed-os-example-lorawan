@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/connectivity/drivers/cellular
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/connectivity/drivers/cellular
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,41 +39,41 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/Altair/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/Altair/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/GEMALTO/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/GEMALTO/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/GENERIC/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/GENERIC/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/MultiTech/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/MultiTech/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/QUECTEL/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/RiotMicro/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/RiotMicro/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/TELIT/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/TELIT/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/UBLOX/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cellular/UBLOX/cmake_install.cmake")
 endif()
 

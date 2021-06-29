@@ -70,7 +70,7 @@ rule CXX_EXECUTABLE_LINKER__mbed-os-example-lorawan_develop
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\RLK\Mbed Programs\CLI2\mbed-os-example-lorawan" -B"C:\Users\RLK\Mbed Programs\CLI2\mbed-os-example-lorawan\cmake_build\MYTARGET\develop\GCC_ARM"
+  command = "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S"C:\Users\RLK\Mbed Programs\CLI\mbed-os-example-lorawan" -B"C:\Users\RLK\Mbed Programs\CLI\mbed-os-example-lorawan\cmake_build\MYTARGET\develop\GCC_ARM"
   description = Re-running CMake...
   generator = 1
 

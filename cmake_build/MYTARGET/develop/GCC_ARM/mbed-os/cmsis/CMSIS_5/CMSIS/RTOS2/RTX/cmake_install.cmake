@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/cmsis/CMSIS_5/CMSIS/RTOS2/RTX
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/cmsis/CMSIS_5/CMSIS/RTOS2/RTX
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

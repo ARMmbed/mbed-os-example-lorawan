@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/connectivity/drivers/cellular/QUECTEL/EC2X
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/connectivity/drivers/cellular/QUECTEL/EC2X
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

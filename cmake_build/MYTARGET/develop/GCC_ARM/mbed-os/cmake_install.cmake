@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,31 +39,31 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/cmsis/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/cmsis/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/drivers/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/drivers/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/hal/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/hal/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/platform/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/platform/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/rtos/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/rtos/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/targets/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/targets/cmake_install.cmake")
 endif()
 

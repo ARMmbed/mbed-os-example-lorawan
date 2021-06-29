@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/connectivity/nanostack
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/connectivity/nanostack
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,26 +39,26 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/coap-service/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/coap-service/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/mbed-mesh-api/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/mbed-mesh-api/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/nanostack-hal-mbed-cmsis-rtos/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/nanostack-hal-mbed-cmsis-rtos/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/sal-stack-nanostack/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/sal-stack-nanostack/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/sal-stack-nanostack-eventloop/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/sal-stack-nanostack-eventloop/cmake_install.cmake")
 endif()
 

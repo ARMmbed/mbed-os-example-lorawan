@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/connectivity
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/connectivity
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,51 +39,51 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/FEATURE_BLE/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/FEATURE_BLE/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/cellular/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/cellular/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/drivers/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/libraries/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/libraries/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/lorawan/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/lorawan/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/lwipstack/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/lwipstack/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/mbedtls/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/mbedtls/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nanostack/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/netsocket/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/netsocket/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nfc/cmake_install.cmake")
+  include("C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/cmake_build/MYTARGET/develop/GCC_ARM/mbed-os/connectivity/nfc/cmake_install.cmake")
 endif()
 

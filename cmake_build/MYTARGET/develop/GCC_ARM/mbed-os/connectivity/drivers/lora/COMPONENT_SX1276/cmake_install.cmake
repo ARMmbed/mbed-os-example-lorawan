@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/connectivity/drivers/lora/COMPONENT_SX1276
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/connectivity/drivers/lora/COMPONENT_SX1276
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

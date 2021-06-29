@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/connectivity/drivers/cellular/UBLOX/N2XX
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/connectivity/drivers/cellular/UBLOX/N2XX
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

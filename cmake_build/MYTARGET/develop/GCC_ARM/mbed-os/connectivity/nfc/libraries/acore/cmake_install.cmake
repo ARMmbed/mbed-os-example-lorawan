@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/connectivity/nfc/libraries/acore
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/connectivity/nfc/libraries/acore
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

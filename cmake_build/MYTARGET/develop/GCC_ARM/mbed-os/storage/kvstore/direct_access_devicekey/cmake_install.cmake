@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/storage/kvstore/direct_access_devicekey
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/storage/kvstore/direct_access_devicekey
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

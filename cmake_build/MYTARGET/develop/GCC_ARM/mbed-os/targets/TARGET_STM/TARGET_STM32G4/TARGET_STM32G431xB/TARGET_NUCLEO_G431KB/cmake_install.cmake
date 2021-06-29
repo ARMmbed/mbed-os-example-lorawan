@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/RLK/Mbed Programs/CLI2/mbed-os-example-lorawan/mbed-os/targets/TARGET_STM/TARGET_STM32G4/TARGET_STM32G431xB/TARGET_NUCLEO_G431KB
+# Install script for directory: C:/Users/RLK/Mbed Programs/CLI/mbed-os-example-lorawan/mbed-os/targets/TARGET_STM/TARGET_STM32G4/TARGET_STM32G431xB/TARGET_NUCLEO_G431KB
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
