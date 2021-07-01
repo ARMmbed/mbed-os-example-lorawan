@@ -25,10 +25,6 @@
 #include "trace_helper.h"
 #include "lora_radio_helper.h"
 
-//QSPI header file
-#include "qspi_api.h"
-#include "drivers/QSPI.h"
-
 using namespace events;
 
 // Max payload size can be LORAMAC_PHY_MAXPAYLOAD.
@@ -64,18 +60,6 @@ uint8_t rx_buffer[30];
  */
 DS1820  ds1820(PC_9);
 
-//QSPI qspi_device(io0,  io1,  io2,  io3,  sclk,  ssel = NC);
-//QSPI_FLASH1_IO0, QSPI_FLASH1_IO1, QSPI_FLASH1_IO2, QSPI_FLASH1_IO3, QSPI_FLASH1_SCK, QSPI_FLASH1_CSN);
-/**
- * QSPI object
- */
- qspi_t *obj;
- //static void flash_mem_qspi();
- const void *send_mem_data ="m";
- void *recv_mem_data;
- size_t *length;
- const qspi_command_t *recv_mem_command, *send_mem_command;
-
 /**
 * This event queue is the global event queue for both the
 * application and stack. To conserve memory, the stack is designed to run
@@ -108,8 +92,6 @@ static lorawan_app_callbacks_t callbacks;
  */
 int main(void)
 {
-    //Call QSPI Flash memory
-	//flash_mem_qspi();
 	
 	// setup tracing
     setup_trace();
@@ -163,19 +145,6 @@ int main(void)
 
     return 0;
 }
-
-/**
- * Communicate with QSPI Flash memory
- */
-/* static void flash_mem_qspi()
-{
-	//PinName io0, io1, io2, io3, sclk, ssel;
-	//qspi_init(obj, io0, io1, io2, io3, sclk, ssel,1000, 1);
-	qspi_init(obj, QSPI_FLASH1_IO0, QSPI_FLASH1_IO1, QSPI_FLASH1_IO2, QSPI_FLASH1_IO3, QSPI_FLASH1_SCK, QSPI_FLASH1_CSN,1000,1);
-	qspi_write(obj, send_mem_command, send_mem_data, length);
-	qspi_read(obj, recv_mem_command, recv_mem_data, length);
-	qspi_free(obj);
-}*/
 
 /**
  * Sends a message to the Network Server
