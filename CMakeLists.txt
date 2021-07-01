@@ -9,6 +9,8 @@ set(APP_TARGET mbed-os-example-lorawan)
 
 include(${MBED_PATH}/tools/cmake/app.cmake)
 
+add_subdirectory(TARGET_MYTARGET)
+#add_subdirectory(lr1110)
 add_subdirectory(${MBED_PATH})
 
 add_executable(${APP_TARGET})
@@ -31,6 +33,7 @@ target_link_libraries(${APP_TARGET}
     PRIVATE
         mbed-os
         mbed-lorawan
+		#lr1110
 )
 
 # Custom target
