@@ -17,7 +17,23 @@
             "lora.application-key": "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }"
         },
 
-        "K64F": {
+		"NUCLEO_WB55RG": {
+			"target.components_add": ["LR1110"],
+			"lr1110-lora-driver.spi-mosi":       "D11",
+            "lr1110-lora-driver.spi-miso":       "D12",
+            "lr1110-lora-driver.spi-sclk":       "D13",
+            "lr1110-lora-driver.spi-cs":         "D10",
+            "lr1110-lora-driver.nreset":          "A0",
+            "lr1110-lora-driver.dio7":           "D2",
+            "lr1110-lora-driver.dio8":           "D3",
+            "lr1110-lora-driver.dio9":           "D4",
+            "lr1110-lora-driver.busy":           "D5",
+            "lr1110-lora-driver.lnractrlon":     "D8"
+			
+			
+        },
+        
+		"K64F": {
             "target.components_add":            ["SX1276"],
             "sx1276-lora-driver.spi-mosi":       "ARDUINO_UNO_D11",
             "sx1276-lora-driver.spi-miso":       "ARDUINO_UNO_D12",
@@ -216,4 +232,3 @@
     },
     "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
 }
-
