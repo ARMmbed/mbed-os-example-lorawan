@@ -92,7 +92,6 @@ static lorawan_app_callbacks_t callbacks;
  */
 int main(void)
 {
-	
 	// setup tracing
     setup_trace();
 
@@ -154,8 +153,7 @@ static void send_message()
     uint16_t packet_len;
     int16_t retcode;
     int32_t sensor_value;
-	radio_events_t *events;
-	radio.init_radio(events);
+	
     if (ds1820.begin()) {
         ds1820.startConversion();
         sensor_value = ds1820.read();
