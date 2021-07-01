@@ -18,7 +18,7 @@
 		"NUCLEO_WB55RG": {
 			"target.components_add": ["LR1110"],
 			"lr1110-lora-driver.spi-mosi":       "D11",
-            "lr1110-lora-driver.spi-miso":       "PTD3",
+            "lr1110-lora-driver.spi-miso":       "D12",
             "lr1110-lora-driver.spi-sclk":       "D13",
             "lr1110-lora-driver.spi-cs":         "D10",
             "lr1110-lora-driver.nreset":          "A0",
