@@ -9,11 +9,11 @@ set(APP_TARGET mbed-os-example-lorawan)
 
 include(${MBED_PATH}/tools/cmake/app.cmake)
 
+project(${APP_TARGET})
+
 add_subdirectory(${MBED_PATH})
 
 add_executable(${APP_TARGET})
-
-project(${APP_TARGET})
 
 # Provide Mbed OS with the header file it needs to configure Mbed TLS for LoRa
 target_include_directories(${APP_TARGET}
