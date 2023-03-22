@@ -20,7 +20,20 @@
 
 #include "lorawan/LoRaRadio.h"
 
-#if COMPONENT_SX1272
+#if COMPONENT_LR1110
+#include "LR1110_LoRaRadio.h"
+LR1110_LoRaRadio radio(MBED_CONF_LR1110_LORA_DRIVER_SPI_MOSI,
+                       MBED_CONF_LR1110_LORA_DRIVER_SPI_MISO,
+                       MBED_CONF_LR1110_LORA_DRIVER_SPI_SCLK
+                       MBED_CONF_LR1110_LORA_DRIVER_SPI_CS,
+                       MBED_CONF_LR1110_LORA_DRIVER_NRESET,
+                       MBED_CONF_LR1110_LORA_DRIVER_DIO7,
+					   MBED_CONF_LR1110_LORA_DRIVER_DIO8,
+					   MBED_CONF_LR1110_LORA_DRIVER_DIO9,
+                       MBED_CONF_LR1110_LORA_DRIVER_BUSY,
+                       MBED_CONF_LR1110_LORA_DRIVER_LNACTRLON);
+					   
+#elif COMPONENT_SX1272
 #include "SX1272_LoRaRadio.h"
 SX1272_LoRaRadio radio(MBED_CONF_SX1272_LORA_DRIVER_SPI_MOSI,
                        MBED_CONF_SX1272_LORA_DRIVER_SPI_MISO,
@@ -75,7 +88,7 @@ SX126X_LoRaRadio radio(MBED_CONF_SX126X_LORA_DRIVER_SPI_MOSI,
                        MBED_CONF_SX126X_LORA_DRIVER_DEVICE_SELECT,
                        MBED_CONF_SX126X_LORA_DRIVER_CRYSTAL_SELECT,
                        MBED_CONF_SX126X_LORA_DRIVER_ANT_SWITCH);
-
+					   
 #elif (TARGET_STM32WL)
 #include "STM32WL_LoRaRadio.h"
 STM32WL_LoRaRadio radio;
